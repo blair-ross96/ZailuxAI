@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Zailux | Your 24/7 AI Receptionist&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg: #050505;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary: #a259ff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-glow: rgba(162, 89, 255, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: rgba(255, 255, 255, 0.03);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--border: rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1, h2, h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Plus Jakarta Sans', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- BACKGROUND COMPONENTS --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-gradient-main {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; width: 100%; height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle at 50% -10%, #2a1254 0%, transparent 60%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: softBreath 10s ease-in-out infinite alternate;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.grid-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; width: 100%; height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-image:<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(rgba(162, 89, 255, 0.05) 1px, transparent 1px),<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(90deg, rgba(162, 89, 255, 0.05) 1px, transparent 1px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: 60px 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mask-image: radial-gradient(circle at center, black, transparent 80%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#particleCanvas {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- ANIMATIONS --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes softBreath {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { transform: scale(1); opacity: 0.8; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { transform: scale(1.1); opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes rotate {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { transform: rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { transform: rotate(360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- MICRO INTERACTIONS --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.border-beam {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.border-beam::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 50%; left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 200%; height: 200%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: conic-gradient(transparent, var(--primary), transparent 30%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: rotate 4s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translate(-50%, -50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.border-beam::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>inset: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hover-icon-effect {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:hover .hover-icon-effect {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.2) rotate(5deg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filter: drop-shadow(0 0 10px var(--primary));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- TYPING --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cursor {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 1.2em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: blink 1s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes blink { 50% { opacity: 0; } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- FAQ --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.faq-item[open] summary span {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: rotate(45deg);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bg-gradient-main"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid-overlay"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;canvas id="particleCanvas"&gt;&lt;/canvas&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navigation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto relative z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-2xl font-extrabold tracking-tighter text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Z&lt;span class="text-[#a259ff]"&gt;ai&lt;/span&gt;lux</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#benefits" class="hover:text-white transition"&gt;Benefits&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#services" class="hover:text-white transition"&gt;Services&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#reviews" class="hover:text-white transition"&gt;Reviews&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#pricing" class="hover:text-white transition"&gt;Pricing&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#contact" class="hover:text-white transition"&gt;Contact Us&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#faq" class="hover:text-white transition"&gt;FAQ&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="border-beam px-6 py-2.5 rounded-full text-sm font-bold text-white transition hover:shadow-[0_0_20px_rgba(162,89,255,0.3)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Get A Free Demo</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="max-w-7xl mx-auto px-8 relative z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Hero Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="py-24 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold tracking-widest text-gray-300 uppercase mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="w-2 h-2 rounded-full bg-[#a259ff] mr-2"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>THE MOST HUMAN-LIKE VOICE AGENT ON THE MARKET</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Every missed call is lost revenue.&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#a259ff]"&gt;Zailux AI doesn't sleep and makes bookings.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Online 24/7, human-like receptionist. Handles inquiries, schedules appointments, sends invoices and qualifies leads.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact" class="px-10 py-5 rounded-2xl bg-[#a259ff] text-white font-extrabold text-lg shadow-[0_0_40px_rgba(162,89,255,0.4)] hover:scale-105 transition-all duration-300 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Try Zailux. Book A Call Today.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-xs text-gray-500"&gt;Try A Free Demo, With No Hidden Fees!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-20 px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/5 inline-flex items-center space-x-3 text-sm md:text-base"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-gray-400"&gt;Ask Zailux to...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span id="typewriter" class="text-white font-medium"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="cursor"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Benefits Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="benefits" class="py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center md:text-left mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-4xl font-extrabold mb-4"&gt;Benefits&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="h-1.5 w-24 bg-[#a259ff] mb-6 mx-auto md:mx-0"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Pre-Trained --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Pre-Trained for Your Industry&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Already understands industry common questions, pricing, and terminology&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Trained on proven templates from restaurants, salons, clinics, and more&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; No generic responses—speaks your business language&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Built to perform from day one.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Built Using Info --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Tailored to Your Business&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Trained using your website content and pricing&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Understands your specific policies and procedures&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; A natural extension of your brand team&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Feels like it genuinely works for you.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Try Before You Buy --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Try Before You Buy&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Service built within 96 hours&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Free 7 day trial with full access before you pay&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Test it on customers, experience real time call handling and CRM integration&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Zero risk. Results guaranteed.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Cost Savings --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Cost Savings &amp; Time Management&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Lower cost than a full-time wage&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; No sick leave, holidays, or training needed&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Scales instantly without hiring&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Free up staff for high-value tasks.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Consistent Experience --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full lg:col-span-2 xl:col-span-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Consistent Customer Experience&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Polite and professional, every single time&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; No human error or "off-days"&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Follows your scripts and procedures perfectly&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 A reliable standard your clients can trust.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Services Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="services" class="py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center md:text-left mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-4xl font-extrabold mb-4"&gt;Services&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="h-1.5 w-24 bg-[#a259ff] mb-6 mx-auto md:mx-0"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid lg:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 24/7 Response --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;24/7 Instant Response &amp; High Call Handling&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Available 24/7 to answer calls, messages, and enquiries&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Responsive and call forwarding options available&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Handles multiple calls at once—no voicemail loops&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Captures leads after hours and during peak periods&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Zero missed opportunities due to slow response.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Booking --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 002 2z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Automates Booking &amp; Scheduling&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Book, reschedule, or cancel appointments automatically&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Integrates with Google, Outlook, and more&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Automated booking confirmations and reminders&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Replaces repetitive front-desk scheduling tasks.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Qualification --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Lead Qualification &amp; Data Capture&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Filters serious customers from time-wasters&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Real-time updates for contact records in your CRM&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Generates and sends invoices/payment links via SMS&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 A sales pipeline that practically manages itself.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Multichannel --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-14 h-14 bg-[#a259ff]/15 rounded-2xl flex items-center justify-center mb-8 hover-icon-effect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-7 h-7 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;circle cx="12" cy="12" r="10" stroke-width="2"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10m0-20a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10M2 12h20" stroke-width="2"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;Multichannel &amp; Multilingual Support&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-3 mb-8 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Support for SMS, Email, Web Chat, and Social Media&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Communicates in multiple languages naturally&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Custom accents to match your local brand voice&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-auto p-4 rounded-xl bg-[#a259ff]/10 border border-[#a259ff]/20 text-sm font-medium text-white italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>👉 Speaks your customer’s language, literally.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Reviews Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="reviews" class="py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;Trusted by Businesses Nationwide&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-center space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 rounded-full bg-[#a259ff]"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 rounded-full bg-[#a259ff]/30"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 rounded-full bg-[#a259ff]/30"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5 italic text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"Zailux changed our business. No more missed calls. Client bookings up 40%!"</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6 flex items-center not-italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-gray-600 mr-3"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold text-white"&gt;Sarah J.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-[#a259ff]"&gt;Clinic Owner&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5 italic text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"The human-like voice is incredible. My customers don't even know they're talking to an AI."</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6 flex items-center not-italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-gray-600 mr-3"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold text-white"&gt;Mark T.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-[#a259ff]"&gt;Plumbing Services&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5 italic text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"Setup took 10 minutes. Integration with my CRM was flawless. Highly recommend."</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6 flex items-center not-italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-gray-600 mr-3"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold text-white"&gt;Jessica L.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-[#a259ff]"&gt;Legal Firm Partner&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pricing Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="pricing" class="py-24 scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="inline-block px-4 py-1.5 rounded-full bg-[#a259ff]/20 text-[#a259ff] text-xs font-extrabold uppercase tracking-widest mb-6 animate-pulse"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>🚀 LIMITED: First 7 businesses get early adopters discount</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-4xl md:text-5xl font-extrabold mb-4"&gt;Choose Your Growth Plan&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-400 max-w-2xl mx-auto"&gt;Transparent pricing designed to scale with your business needs. No hidden fees, just pure efficiency.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Main Pricing Card --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-4xl mx-auto mb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="relative group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Glowing Background --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute -inset-1 bg-gradient-to-r from-[#a259ff] to-[#6d28d9] rounded-[40px] blur opacity-25 group-hover:opacity-40 transition duration-1000"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative bg-black/80 backdrop-blur-xl border border-white/10 rounded-[40px] overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid md:grid-cols-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Plan Details --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="md:col-span-3 p-8 md:p-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center space-x-3 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;h3 class="text-3xl font-extrabold text-white"&gt;Basic Plan&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="px-3 py-1 rounded-full bg-[#a259ff] text-[10px] font-bold text-white uppercase tracking-wider"&gt;Most Popular&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-[#a259ff] font-bold mb-6 flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>AI Receptionist Included Features:</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                                </span></p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Set up within 96 hours&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; 7 day FREE trial&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Takes bookings&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Answers complex queries&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Calendar integration&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Email &amp; SMS confirmations&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Lead capture&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Call transferring&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; 24/7 or out of hours handling&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Call logging&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Integration with current system&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex items-start"&gt;&lt;span class="text-[#a259ff] mr-2"&gt;•&lt;/span&gt; Missed call text back&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="mt-8 pt-8 border-t border-white/5 space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex items-start p-4 rounded-2xl bg-white/5 border border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#a259ff]/20 flex items-center justify-center mr-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;svg class="w-4 h-4 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-sm font-bold text-white"&gt;AI Customisation&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-xs text-gray-400"&gt;Choose AI voice, greeting message, train AI with common questions from customers.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex items-start p-4 rounded-2xl bg-[#a259ff]/5 border border-[#a259ff]/20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#a259ff]/20 flex items-center justify-center mr-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;svg class="w-4 h-4 text-[#a259ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-sm font-bold text-white"&gt;Up to 100 hours of call time&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-xs text-gray-400"&gt;Monthly allowance included. More time can be purchased at an additional cost.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Plan Pricing --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="md:col-span-2 bg-[#a259ff]/10 p-8 md:p-12 flex flex-col justify-center border-l border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2"&gt;Setup Cost&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="flex items-baseline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span class="text-4xl font-extrabold text-white"&gt;$499&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span class="ml-2 text-gray-500 font-medium"&gt;USD&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2"&gt;Monthly Subscription&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="flex items-baseline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span class="text-4xl font-extrabold text-white"&gt;$499&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span class="ml-2 text-gray-500 font-medium"&gt;USD/mo&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="mt-2 text-[10px] text-gray-500 font-medium uppercase tracking-tighter"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>Early Adopters: $499 (Regular $799)</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="pt-6 border-t border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="p-4 rounded-2xl bg-black/40 border border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-[#a259ff] text-[10px] font-extrabold uppercase tracking-[0.2em] mb-1"&gt;Annual Billing&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="flex items-baseline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;span class="text-2xl font-extrabold text-white"&gt;$5190&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;span class="ml-2 text-gray-500 text-xs"&gt;USD/year&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="mt-2 text-xs text-green-400 font-bold bg-green-400/10 inline-block px-2 py-0.5 rounded"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                                </span>SAVE $1297 USD</p>
+<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;a href="#contact" class="block w-full py-4 rounded-2xl bg-[#a259ff] text-white text-center font-extrabold hover:shadow-[0_0_30px_rgba(162,89,255,0.4)] transition-all duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>Get Started Now</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Optional Extras --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col md:flex-row md:items-end justify-between mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold mb-2"&gt;Optional Extras&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-400"&gt;Enhance your Zailux experience with these power-ups.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 md:mt-0 text-gray-500 text-sm italic font-medium"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>* All prices in USD</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Marketing &amp; Ad Campaigns&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;from $349/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Create, launch and manage advertising campaigns across social media, email, Google and LinkedIn etc.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Reputation Management&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$199/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Local SEO and automated reviews to dominate Google rankings and build trust.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;AI Smart Website&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$249/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Conversion focused website using built-in AI tools to capture leads, includes an AI chatbot feature.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 4 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;AI Chatbot Only&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$149/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Integrated with your existing website or social media pages for 24/7 automated messaging.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 5 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;First Month Optimisation&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$349 Once&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Personal review of first 10 calls, AI refinement and troubleshooting with full support.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 6 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Ongoing Support&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$249/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Performance reports, system updates, technical support and monthly troubleshooting.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 7 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Zailux AI Update&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$99 Once&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Make changes to system operations or update business/pricing information on demand.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 8 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Multi-Location Setup&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$499/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Support for up to 3 locations. Enquire for custom pricing for 4 or more locations.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 9 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;CRM Integration&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;$499/mo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Connect Zailux with your existing tools to track all leads, manage campaigns, and automate complex workflows.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Extra 10 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 hover:border-[#a259ff]/30 transition-all flex flex-col h-full group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-lg font-bold group-hover:text-[#a259ff] transition"&gt;Call Management&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[#a259ff] text-xs font-bold whitespace-nowrap ml-4"&gt;Enquire&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400 leading-relaxed"&gt;Need more volume? Contact us to purchase additional monthly call hours beyond the 100-hour base allowance.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Contact Form Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="contact" class="py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-gradient-to-br from-[#1a0b2e] to-black rounded-[40px] p-8 md:p-16 border border-[#a259ff]/20 shadow-[0_0_50px_rgba(162,89,255,0.1)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-12 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-4xl font-bold mb-6 leading-tight"&gt;Ready to Scale Your Practice?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-400 mb-8"&gt;Tell us your needs and we'll show you how Zailux can handle your front desk with zero friction and give your business a live demo.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center space-x-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[#a259ff]"&gt;✓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-300"&gt;24/7 Availability&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center space-x-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[#a259ff]"&gt;✓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-300"&gt;Custom Brand Instructions&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center space-x-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[#a259ff]"&gt;✓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-300"&gt;Direct CRM Sync&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;form class="space-y-4" onsubmit="event.preventDefault()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" placeholder="Name" class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#a259ff] outline-none transition w-full text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="email" placeholder="Email" class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#a259ff] outline-none transition w-full text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;textarea placeholder="How can we help?" rows="4" class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#a259ff] outline-none transition w-full text-white"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button type="submit" class="w-full py-4 rounded-xl bg-[#a259ff] font-bold hover:shadow-[0_0_20px_rgba(162,89,255,0.4)] transition text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Send Message</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- FAQ Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="faq" class="py-24 max-w-3xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-12 text-center"&gt;Frequently Asked Questions&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>How long does it take to set up the AI receptionist?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>We aim to get your Zailux AI up and running within just 96 hours. Once it's live, you get a full week to trial the service for free to ensure it meets your business needs.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Will it work for my business?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Absolutely. Zailux is suited for any industry—from restaurants and HVAC services to real estate and barber shops. We don't use a generic template; your AI is specifically tailored to your business's unique needs, services, and brand voice.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>What if people hate talking to AI?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Most customers can't tell the difference. It sounds human, responds instantly, and transfers to you when needed. The real frustration is not being answered at all.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Do we need to change our phone number?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Never. We set up call forwarding. Your customers call the same number they always have.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>What platforms does it integrate with?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>We integrate natively with Google Services, Outlook, Salesforce, HubSpot, and over 2,000 other apps via Zapier.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;details class="faq-item group bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex justify-between items-center list-none font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Do I need to sign a contract?</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[#a259ff] transition-transform text-2xl font-normal"&gt;+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 text-gray-400 text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>No contracts. You can cancel your service anytime and keep all call records if you leave.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="py-12 border-t border-white/5 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-2xl font-bold mb-4"&gt;Z&lt;span class="text-[#a259ff]"&gt;ai&lt;/span&gt;lux&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-gray-500 text-sm"&gt;&amp;copy; 2024 Zailux Receptionist Services. All rights reserved.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- 1. Particle Canvas ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const canvas = document.getElementById('particleCanvas');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ctx = canvas.getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let particles = [];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function initCanvas() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>canvas.width = window.innerWidth;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>canvas.height = window.innerHeight;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>particles = [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; 80; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>particles.push({</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>x: Math.random() * canvas.width,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>y: Math.random() * canvas.height,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>size: Math.random() * 2 + 0.5,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>speedX: (Math.random() - 0.5) * 0.4,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>speedY: (Math.random() - 0.5) * 0.4,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>opacity: Math.random() * 0.5 + 0.2</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function drawParticles() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>particles.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>p.x += p.speedX;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>p.y += p.speedY;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.x &lt; 0) p.x = canvas.width;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.x &gt; canvas.width) p.x = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.y &lt; 0) p.y = canvas.height;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (p.y &gt; canvas.height) p.y = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fillStyle = `rgba(162, 89, 255, ${p.opacity})`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fill();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>requestAnimationFrame(drawParticles);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('resize', initCanvas);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>initCanvas();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawParticles();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- 2. Typewriter Effect ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const typewriterEl = document.getElementById('typewriter');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const phrases = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"schedule a meeting...",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"book an appointment...",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"qualify a new lead...",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"take a message...",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"handle common FAQs..."</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let pIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let charIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let isDeleting = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function type() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const current = phrases[pIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isDeleting) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>typewriterEl.textContent = current.substring(0, charIndex - 1);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>charIndex--;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>typewriterEl.textContent = current.substring(0, charIndex + 1);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>charIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let typeSpeed = isDeleting ? 50 : 100;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!isDeleting &amp;&amp; charIndex === current.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>typeSpeed = 2000;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>isDeleting = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (isDeleting &amp;&amp; charIndex === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>isDeleting = false;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>pIndex = (pIndex + 1) % phrases.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>typeSpeed = 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(type, typeSpeed);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>type();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

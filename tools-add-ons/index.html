@@ -151,7 +151,7 @@ html{scroll-behavior:smooth}
 .ta-visual-orbit{position:absolute;width:145px;height:55px;border:1px solid rgba(162,89,255,.16);border-radius:50%;transform:rotate(-26deg)}.ta-visual svg{width:110px;height:110px;position:relative;filter:drop-shadow(0 0 12px rgba(162,89,255,.16));overflow:visible}
 .ta-card h3{font-family:'Space Grotesk',Inter,sans-serif;font-size:20px;letter-spacing:-.025em;line-height:1.25;margin:0 0 10px}.ta-card-intro{font-size:13.5px;line-height:1.65;color:#d4d4dc;margin:0 0 13px}
 .ta-price{min-height:35px;display:flex;align-items:center;margin:1px 0 10px;padding:7px 10px;border-radius:8px;background:rgba(162,89,255,.1);border:1px solid rgba(162,89,255,.19);color:#e9d5ff;font-weight:700;font-size:15px;letter-spacing:-.01em}.ta-price-value{display:block}.ta-price-dual{font-size:14px}
-.ta-detail{font-size:12.5px;line-height:1.7;color:#9ca3af;margin:0 0 20px}.ta-enquire{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;width:100%;padding:12px 14px;border:1px solid rgba(162,89,255,.45);border-radius:10px;background:rgba(162,89,255,.09);color:#fff;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s,border-color .2s,transform .2s}.ta-enquire:hover{background:rgba(162,89,255,.2);border-color:#a259ff}.ta-enquire span{font-size:16px;color:#d8b4fe}
+.ta-detail{font-size:12.5px;line-height:1.7;color:#9ca3af;margin:0 0 20px}.ta-feature-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px;color:#d4d4dc;font-size:12.5px;line-height:1.55}.ta-feature-list li{position:relative;padding-left:18px}.ta-feature-list li:before{content:"✓";position:absolute;left:0;top:0;color:#c084fc;font-weight:800}.ta-tier-label{display:block;margin-top:4px;font-size:11px;line-height:1.45;color:#d8b4fe;font-weight:600}.ta-price-dual{margin-bottom:10px}.ta-enquire{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;width:100%;padding:13px 16px;border:1px solid #A259FF;border-radius:12px;background:#A259FF;color:#fff;text-decoration:none;font-size:14px;font-weight:800;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 0 24px rgba(162,89,255,.28)}.ta-enquire:hover{transform:translateY(-2px);background:#8b3dff;border-color:#a259ff;box-shadow:0 0 40px rgba(162,89,255,.45)}.ta-enquire span{font-size:16px;color:#fff}
 .ta-platform-grid .ta-card:nth-child(-n+2){border-color:rgba(162,89,255,.38);background:linear-gradient(155deg,rgba(32,14,53,.98),rgba(10,6,17,.98))}.ta-platform-grid .ta-card:nth-child(-n+2) .ta-visual{height:166px}.ta-platform-grid .ta-card:nth-child(-n+2) h3{font-size:22px}
 .ta-feature-card{grid-column:span 2;display:grid;grid-template-columns:minmax(230px,.86fr) minmax(0,1.14fr);align-items:stretch;background:linear-gradient(125deg,rgba(29,13,47,.98),rgba(10,6,17,.99));border-color:rgba(162,89,255,.4)}.ta-feature-card .ta-visual{height:100%;min-height:390px;border-bottom:0;border-right:1px solid rgba(162,89,255,.13)}.ta-feature-card .ta-visual svg{width:190px;height:190px}.ta-feature-card .ta-visual:before{width:190px;height:190px}.ta-feature-card .ta-card-body{padding:28px}.ta-feature-card h3{font-size:29px}.ta-eyebrow{color:#c084fc;text-transform:uppercase;font-size:10px;letter-spacing:.14em;font-weight:700;margin-bottom:9px}.ta-feature-card .ta-card-intro{font-size:15px}.ta-feature-card .ta-price{font-size:16px}.ta-demo-note{padding:13px 14px;border-left:2px solid #a259ff;background:rgba(162,89,255,.07);border-radius:0 9px 9px 0;margin:0 0 18px;width:100%}.ta-demo-note strong{font-size:12px;color:#e9d5ff}.ta-demo-note p{font-size:12px;line-height:1.6;color:#b7a9c9;margin:6px 0 0}
 .ta-closing{padding:50px 0 64px}.ta-closing-panel{position:relative;text-align:center;padding:42px 24px;border-radius:22px;border:1px solid rgba(162,89,255,.28);background:radial-gradient(ellipse at 50% 0%,rgba(126,34,206,.18),transparent 65%),linear-gradient(135deg,#11081d,#09050f);overflow:hidden}.ta-closing-panel h2{font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(25px,3.6vw,36px);letter-spacing:-.035em;margin:0 0 12px}.ta-closing-panel p{max-width:650px;margin:0 auto 22px;color:#a1a1aa;font-size:14px;line-height:1.7}.ta-closing-actions{display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:wrap}.ta-primary-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:10px;color:#fff;background:linear-gradient(120deg,#7c3aed,#a259ff);border:1px solid rgba(216,180,254,.45);font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 5px 22px rgba(124,58,237,.2);transition:transform .2s,box-shadow .2s}.ta-primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(124,58,237,.3)}.ta-email{font-size:13px;color:#d8b4fe;text-decoration:none;padding:12px 4px}.ta-email:hover{text-decoration:underline}
@@ -187,8 +187,227 @@ html{scroll-behavior:smooth}
   <a href="/home#section-11" class="border-beam-btn">Find Your AI Solution</a>
 </nav></div>
 <main class="ta-page">
-<section class="ta-hero"><div class="ta-wrap"><span class="ta-kicker"><span class="ta-kicker-dot"></span> Expand your Zailux setup</span><h1><span class="ta-gradient">Explore Our Tools &amp; Add-ons</span></h1><p>Expand what Zailux can do for your business. Explore additional platform tools, AI agent add-ons, website services and custom-built solutions designed to help you work smarter and turn more opportunities into revenue.</p><div class="ta-hero-actions"><a class="ta-hero-link" href="#ta-platform">Explore platform tools <span aria-hidden="true">↓</span></a><a class="ta-hero-link" href="/home#section-11">Discuss your business <span aria-hidden="true">↗</span></a></div><div class="ta-currency-wrap"><div class="clone-pricing-currency-dropdown"><button class="clone-pricing-currency-btn" type="button" id="ta-currency-btn" aria-haspopup="true" aria-expanded="false"><span class="clone-pricing-curr-left"><span class="clone-pricing-curr-label-dim">Currency</span><span class="clone-pricing-curr-val" id="ta-currency-label">AUD (A$)</span></span><svg class="clone-pricing-chevron" id="ta-currency-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="clone-pricing-currency-menu" id="ta-currency-menu" role="group" aria-label="Select your preferred currency"><button class="clone-pricing-curr-opt" type="button" data-curr="USD">USD ($)</button><button class="clone-pricing-curr-opt" type="button" data-curr="AUD">AUD (A$)</button><button class="clone-pricing-curr-opt" type="button" data-curr="GBP">GBP (£)</button><button class="clone-pricing-curr-opt" type="button" data-curr="EUR">EUR (€)</button></div></div></div></div></section>
-<section class="ta-section" id="ta-platform"><div class="ta-wrap"><div class="ta-section-heading"><div><h2>Zailux Platform Tools</h2><p>Extend your platform with tools that help you manage everyday work, customer reputation, marketing activity and performance insights.</p></div><span class="ta-section-tag">Business tools &amp; insights</span></div><div class="ta-grid ta-platform-grid"><article class="ta-card" data-service="AI Employee Growth"><div class="ta-visual ta-visual-assistant" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-assistant" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-assistant)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="25" width="70" height="70" rx="22"/><circle cx="47" cy="52" r="5"/><circle cx="73" cy="52" r="5"/><path d="M43 70 Q60 84 77 70"/><path d="M60 15v10M15 60h10M95 60h10"/></g></svg></div><div class="ta-card-body"><h3>AI Employee Growth</h3><p class="ta-card-intro">Your AI-powered assistant for managing tasks and getting more done across your business.</p><div class="ta-price" data-price-kind="monthly" data-usd="85" data-aud="122" data-gbp="64" data-eur="76"><span class="ta-price-value" data-price-main>$85/month</span></div><p class="ta-detail">Use text or voice prompts to manage calendars, conversations, contacts and sales pipelines, update CRM records and carry out supported actions across the Zailux Platform.</p><a class="ta-enquire" href="/home#section-11" data-service-link="AI Employee Growth">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="AI Employee Unlimited"><div class="ta-visual ta-visual-brain" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-brain" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-brain)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 25c-12-20-34-7-30 9-19 1-20 25-6 32-8 19 12 34 27 22V38M60 25c12-20 34-7 30 9 19 1 20 25 6 32 8 19-12 34-27 22V38M39 44c-8 4-9 15 0 19M80 44c8 4 9 15 0 19M44 72c4-7 11-8 16-4M76 72c-4-7-11-8-16-4"/></g></svg></div><div class="ta-card-body"><h3>AI Employee Unlimited</h3><p class="ta-card-intro">Get more from your AI Employee as your enabled platform tools expand its capabilities.</p><div class="ta-price" data-price-kind="monthly" data-usd="139" data-aud="200" data-gbp="105" data-eur="124"><span class="ta-price-value" data-price-main>$139/month</span></div><p class="ta-detail">The more Zailux Platform Tools you have enabled, the more capabilities and workflows your AI Employee can access. Add Marketing Tools, Reputation Management Tools and Performance Reports to expand what it can help manage.</p><a class="ta-enquire" href="/home#section-11" data-service-link="AI Employee Unlimited">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Reputation Management Tools"><div class="ta-visual ta-visual-stars" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-stars" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-stars)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m60 15 8 20 22 2-17 14 5 22-18-12-18 12 5-22-17-14 22-2z"/><path d="m25 74 4 10 11 1-8 7 2 11-9-6-9 6 2-11-8-7 11-1zM91 70l4 9 10 1-8 6 2 10-8-5-8 5 2-10-8-6 10-1z"/></g></svg></div><div class="ta-card-body"><h3>Reputation Management Tools</h3><p class="ta-card-intro">Collect, monitor and manage your online reputation in one place.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Review requests by SMS and email, Google Business Profile and Facebook review support, Reviews AI, sentiment and trend reports, up to three local competitor analyses, profile optimisation and website or funnel review widgets.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Reputation Management Tools">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Marketing Tools"><div class="ta-visual ta-visual-marketing" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-marketing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-marketing)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="80" height="58" rx="8"/><path d="M32 42h36M32 53h22M32 66h45M80 42l7 7 12-15"/><circle cx="86" cy="66" r="6"/></g></svg></div><div class="ta-card-body"><h3>Marketing Tools</h3><p class="ta-card-intro">Access tools to plan, create and organise marketing activity.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Connect social accounts, create, schedule and publish content, run email campaigns, discover prospects, enrich contacts, audit website performance, identify local SEO opportunities and view marketing reports. Marketing content generation requires this add-on.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Marketing Tools">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Performance Reports"><div class="ta-visual ta-visual-analytics" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-analytics" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-analytics)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 95V25M20 95h82"/><rect x="31" y="66" width="12" height="29" rx="3"/><rect x="52" y="48" width="12" height="47" rx="3"/><rect x="73" y="32" width="12" height="63" rx="3"/><path d="m30 53 19-12 17 5 25-23"/></g></svg></div><div class="ta-card-body"><h3>Performance Reports</h3><p class="ta-card-intro">Understand your marketing and sales performance with clearer reporting.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Includes custom reports, connected Google Ads and Meta Ads reporting, attribution reports, appointment reporting, local marketing audits and call reports.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Performance Reports">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Zailux Mobile App"><div class="ta-visual ta-visual-mobile" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-mobile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-mobile)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="39" y="13" width="42" height="88" rx="9"/><path d="M51 24h18M53 86h14"/><circle cx="60" cy="53" r="13"/><path d="m54 53 4 4 8-9"/></g></svg></div><div class="ta-card-body"><h3>Zailux Mobile App</h3><p class="ta-card-intro">Access relevant Zailux business tools and information while away from your desktop.</p><div class="ta-price" data-price-kind="monthly" data-usd="10" data-aud="14" data-gbp="8" data-eur="9"><span class="ta-price-value" data-price-main>$10/month</span></div><p class="ta-detail">Use the mobile app to stay connected to supported business information and tools while on the move. Available capabilities depend on the configured app.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Zailux Mobile App">Enquire Now <span aria-hidden="true">↗</span></a></div></article></div></div></section>
+<section id="section-ta-hero" class="ta-hero"><!-- Particles layer -->
+    <div class="clone-hero-particles" aria-hidden="true" style="width:100%;max-width:100%;overflow:hidden;box-sizing:border-box;">
+      <script>
+      (function(){
+        try {
+          var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduce) return;
+
+          var script = document.currentScript;
+          var host = script && script.parentElement;
+          if (!host) return;
+          var section = host.closest && host.closest('[id^="section-"]');
+          if (!section) return;
+
+          var sid = section.id || 'hero';
+          window.__zailuxHeroParticles = window.__zailuxHeroParticles || {};
+          if (window.__zailuxHeroParticles[sid] && window.__zailuxHeroParticles[sid].running) return;
+
+          var state = window.__zailuxHeroParticles[sid] = window.__zailuxHeroParticles[sid] || {};
+          state.running = true;
+
+          // Ensure section can host an absolute layer.
+          var cs = window.getComputedStyle(section);
+          if (cs.position === 'static') section.style.position = 'relative';
+          section.style.overflow = 'hidden';
+
+          function ensureCanvas(){
+            var existing = section.querySelector('.clone-hero-particles-canvas');
+            if (existing && existing.getContext) return existing;
+
+            var canvas = document.createElement('canvas');
+            canvas.className = 'clone-hero-particles-canvas';
+            canvas.setAttribute('aria-hidden', 'true');
+            canvas.style.position = 'absolute';
+            canvas.style.inset = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '1';
+            canvas.style.opacity = '0.85';
+            canvas.style.mixBlendMode = 'screen';
+
+            // Insert behind section content.
+            section.insertBefore(canvas, section.firstChild);
+
+            // Keep section content above the canvas.
+            var kids = Array.prototype.slice.call(section.children);
+            for (var i=0;i<kids.length;i++) {
+              if (kids[i] === canvas) continue;
+              var kcs = window.getComputedStyle(kids[i]);
+              if (kcs.position === 'static') kids[i].style.position = 'relative';
+              if (kcs.zIndex === 'auto') kids[i].style.zIndex = '2';
+            }
+
+            return canvas;
+          }
+
+          var canvas = ensureCanvas();
+          var ctx = canvas.getContext('2d');
+          if (!ctx) return;
+
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          var w = 0, h = 0;
+
+          function rand(a,b){ return a + Math.random()*(b-a); }
+
+          function initParticles(count){
+            state.particles = [];
+            for (var p=0; p<count; p++){
+              state.particles.push({
+                x: rand(0,w),
+                y: rand(0,h),
+                r: rand(1.2, 4.8),
+                vx: rand(-0.12, 0.12),
+                vy: rand(-0.18, 0.06),
+                a: rand(0.16, 0.52),
+                hueMix: Math.random(),
+                phase: rand(0, Math.PI*2)
+              });
+            }
+          }
+
+          function resize(){
+            // Use bounding box, but fall back to scrollHeight in case height is still settling.
+            var rect = section.getBoundingClientRect();
+            var nw = Math.max(1, Math.floor(rect.width));
+            var nh = Math.max(1, Math.floor(rect.height));
+            if (nh < 50) nh = Math.max(nh, section.scrollHeight || nh);
+
+            if (nw === w && nh === h) return;
+            w = nw; h = nh;
+
+            canvas.width = Math.floor(w * dpr);
+            canvas.height = Math.floor(h * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            var targetCount = Math.max(26, Math.min(80, Math.round(w / 20)));
+            if (!state.particles || state.particles.length !== targetCount) initParticles(targetCount);
+          }
+
+          resize();
+          window.addEventListener('resize', resize, {passive:true});
+
+          // Keep the canvas sized correctly even if the builder reflows the hero after hydration.
+          if (window.ResizeObserver) {
+            state.ro = new ResizeObserver(function(){ resize(); });
+            state.ro.observe(section);
+          }
+
+          // If the builder re-renders and removes our injected canvas, re-inject it.
+          state.mo = new MutationObserver(function(){
+            if (!section.isConnected) return;
+            if (!section.querySelector('.clone-hero-particles-canvas')) {
+              canvas = ensureCanvas();
+              ctx = canvas.getContext('2d');
+              resize();
+            }
+          });
+          state.mo.observe(section, { childList: true });
+
+          // Mouse parallax.
+          var mx = 0, my = 0;
+          state.onMove = function(e){
+            var r = section.getBoundingClientRect();
+            mx = (e.clientX - r.left) / Math.max(1, r.width) - 0.5;
+            my = (e.clientY - r.top) / Math.max(1, r.height) - 0.5;
+          };
+          window.addEventListener('mousemove', state.onMove, {passive:true});
+
+          // Purple palette
+          var purple = 'rgba(168, 85, 247,';
+          var fuchsia = 'rgba(217, 70, 239,';
+
+          function drawAmbientGlow(){
+            var g = ctx.createRadialGradient(w*0.30, h*0.18, 0, w*0.30, h*0.18, Math.max(w,h)*0.70);
+            g.addColorStop(0, 'rgba(168,85,247,0.18)');
+            g.addColorStop(0.40, 'rgba(168,85,247,0.09)');
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = g;
+            ctx.fillRect(0,0,w,h);
+          }
+
+          var last = performance.now();
+          function tick(now){
+            try {
+              if (!section.isConnected) { state.running = false; return; }
+
+              // If the canvas was removed (hydration/rerender), bring it back.
+              if (!section.querySelector('.clone-hero-particles-canvas')) {
+                canvas = ensureCanvas();
+                ctx = canvas.getContext('2d');
+              }
+
+              resize();
+
+              var dt = Math.min(32, now - last);
+              last = now;
+
+              ctx.clearRect(0,0,w,h);
+              drawAmbientGlow();
+
+              var particles = state.particles || [];
+              for (var i=0; i<particles.length; i++){
+                var pt = particles[i];
+                pt.phase += dt * 0.001;
+                pt.x += pt.vx * dt;
+                pt.y += pt.vy * dt;
+
+                if (pt.x < -10) pt.x = w + 10;
+                if (pt.x > w + 10) pt.x = -10;
+                if (pt.y < -20) pt.y = h + 20;
+                if (pt.y > h + 20) pt.y = -20;
+
+                var wobble = Math.sin(pt.phase) * 0.8;
+                var px = pt.x + mx * 24;
+                var py = pt.y + my * 14 + wobble;
+
+                ctx.beginPath();
+                ctx.arc(px, py, pt.r, 0, Math.PI*2);
+                var c = (pt.hueMix < 0.55 ? purple : fuchsia) + pt.a + ')';
+                ctx.fillStyle = c;
+                ctx.shadowBlur = 18;
+                ctx.shadowColor = c;
+                ctx.fill();
+              }
+
+              ctx.shadowBlur = 0;
+              ctx.globalAlpha = 0.18;
+              for (var s=0; s<18; s++){
+                ctx.fillStyle = 'rgba(255,255,255,0.10)';
+                ctx.fillRect(Math.random()*w, Math.random()*h*0.55, 1, 1);
+              }
+              ctx.globalAlpha = 1;
+
+              requestAnimationFrame(tick);
+            } catch (e) {
+              // Keep trying even if something throws during a builder rerender.
+              requestAnimationFrame(tick);
+            }
+          }
+          requestAnimationFrame(tick);
+
+        } catch (e) {
+          // fail silently
+        }
+      })();
+      </script><div class="ta-wrap"><span class="ta-kicker"><span class="ta-kicker-dot"></span> Expand your Zailux setup</span><h1><span class="ta-gradient">Explore Our Tools &amp; Add-ons</span></h1><p>Expand what Zailux can do for your business. Explore additional platform tools, AI agent add-ons, website services and custom-built solutions designed to help you work smarter and turn more opportunities into revenue.</p><div class="ta-hero-actions"><a class="ta-hero-link" href="#ta-platform">Explore platform tools <span aria-hidden="true">↓</span></a><a class="ta-hero-link" href="/home#section-11">Discuss your business <span aria-hidden="true">↗</span></a></div><div class="ta-currency-wrap"><div class="clone-pricing-currency-dropdown"><button class="clone-pricing-currency-btn" type="button" id="ta-currency-btn" aria-haspopup="true" aria-expanded="false"><span class="clone-pricing-curr-left"><span class="clone-pricing-curr-label-dim">Currency</span><span class="clone-pricing-curr-val" id="ta-currency-label">AUD (A$)</span></span><svg class="clone-pricing-chevron" id="ta-currency-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="clone-pricing-currency-menu" id="ta-currency-menu" role="group" aria-label="Select your preferred currency"><button class="clone-pricing-curr-opt" type="button" data-curr="USD">USD ($)</button><button class="clone-pricing-curr-opt" type="button" data-curr="AUD">AUD (A$)</button><button class="clone-pricing-curr-opt" type="button" data-curr="GBP">GBP (£)</button><button class="clone-pricing-curr-opt" type="button" data-curr="EUR">EUR (€)</button></div></div></div></div></section>
+<section class="ta-section" id="ta-platform"><div class="ta-wrap"><div class="ta-section-heading"><div><h2>Zailux Platform Tools</h2><p>Extend your platform with tools that help you manage everyday work, customer reputation, marketing activity and performance insights.</p></div><span class="ta-section-tag">Business tools &amp; insights</span></div><div class="ta-grid ta-platform-grid"><article class="ta-card" data-service="AI Employee"><div class="ta-visual ta-visual-assistant" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-assistant" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-assistant)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="25" width="70" height="70" rx="22"/><circle cx="47" cy="52" r="5"/><circle cx="73" cy="52" r="5"/><path d="M43 70 Q60 84 77 70"/><path d="M60 15v10M15 60h10M95 60h10"/></g></svg></div><div class="ta-card-body">
+<h3>AI Employee</h3>
+<p class="ta-card-intro">Make more of Zailux by giving your AI Employee more of the tools it can work with. Use it to manage everyday business tasks through text or voice, then expand its capabilities as you enable more of the Zailux platform.</p>
+<div class="ta-price ta-price-dual" data-price-kind="monthly" data-usd="85" data-aud="122" data-gbp="64" data-eur="76"><span class="ta-price-value" data-price-main>$85/month</span><span class="ta-tier-label">Growth · limited AI usage</span></div>
+<div class="ta-price ta-price-dual" data-price-kind="monthly" data-usd="139" data-aud="200" data-gbp="105" data-eur="124"><span class="ta-price-value" data-price-main>$139/month</span><span class="ta-tier-label">Unlimited · unlimited AI usage</span></div>
+<p class="ta-detail">Your AI Employee can help manage calendars, conversations, contacts, sales pipelines and CRM records through supported text and voice actions. Enable more platform tools to give it more ways to help across your business.</p>
+<ul class="ta-feature-list">
+<li>Manage calendars, conversations, contacts and CRM records</li>
+<li>Work with sales pipelines and supported business workflows</li>
+<li>Extend its capabilities with Marketing Tools, Reputation Management and Performance Reports</li>
+<li>Choose Growth for limited AI usage or Unlimited for unlimited AI usage</li>
+</ul>
+<a class="ta-enquire" href="/home#section-11" data-service-link="AI Employee — Growth or Unlimited">Enquire Now <span aria-hidden="true">↗</span></a>
+</div></article><article class="ta-card" data-service="Reputation Management Tools"><div class="ta-visual ta-visual-stars" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-stars" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-stars)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m60 15 8 20 22 2-17 14 5 22-18-12-18 12 5-22-17-14 22-2z"/><path d="m25 74 4 10 11 1-8 7 2 11-9-6-9 6 2-11-8-7 11-1zM91 70l4 9 10 1-8 6 2 10-8-5-8 5 2-10-8-6 10-1z"/></g></svg></div><div class="ta-card-body"><h3>Reputation Management Tools</h3><p class="ta-card-intro">Collect, monitor and manage your online reputation in one place.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Review requests by SMS and email, Google Business Profile and Facebook review support, Reviews AI, sentiment and trend reports, up to three local competitor analyses, profile optimisation and website or funnel review widgets.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Reputation Management Tools">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Marketing Tools"><div class="ta-visual ta-visual-marketing" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-marketing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-marketing)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="80" height="58" rx="8"/><path d="M32 42h36M32 53h22M32 66h45M80 42l7 7 12-15"/><circle cx="86" cy="66" r="6"/></g></svg></div><div class="ta-card-body"><h3>Marketing Tools</h3><p class="ta-card-intro">Access tools to plan, create and organise marketing activity.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Connect social accounts, create, schedule and publish content, run email campaigns, discover prospects, enrich contacts, audit website performance, identify local SEO opportunities and view marketing reports. Marketing content generation requires this add-on.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Marketing Tools">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Performance Reports"><div class="ta-visual ta-visual-analytics" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-analytics" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-analytics)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 95V25M20 95h82"/><rect x="31" y="66" width="12" height="29" rx="3"/><rect x="52" y="48" width="12" height="47" rx="3"/><rect x="73" y="32" width="12" height="63" rx="3"/><path d="m30 53 19-12 17 5 25-23"/></g></svg></div><div class="ta-card-body"><h3>Performance Reports</h3><p class="ta-card-intro">Understand your marketing and sales performance with clearer reporting.</p><div class="ta-price" data-price-kind="monthly" data-usd="99" data-aud="142" data-gbp="74" data-eur="88"><span class="ta-price-value" data-price-main>$99/month</span></div><p class="ta-detail">Includes custom reports, connected Google Ads and Meta Ads reporting, attribution reports, appointment reporting, local marketing audits and call reports.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Performance Reports">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Zailux Mobile App"><div class="ta-visual ta-visual-mobile" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-mobile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-mobile)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="39" y="13" width="42" height="88" rx="9"/><path d="M51 24h18M53 86h14"/><circle cx="60" cy="53" r="13"/><path d="m54 53 4 4 8-9"/></g></svg></div><div class="ta-card-body"><h3>Zailux Mobile App</h3><p class="ta-card-intro">Access relevant Zailux business tools and information while away from your desktop.</p><div class="ta-price" data-price-kind="monthly" data-usd="10" data-aud="14" data-gbp="8" data-eur="9"><span class="ta-price-value" data-price-main>$10/month</span></div><p class="ta-detail">Use the mobile app to stay connected to supported business information and tools while on the move. Available capabilities depend on the configured app.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Zailux Mobile App">Enquire Now <span aria-hidden="true">↗</span></a></div></article></div></div></section>
 <section class="ta-section" id="ta-agent-addons"><div class="ta-wrap"><div class="ta-section-heading"><div><h2>AI Agent Add-ons</h2><p>Add focused capabilities to your setup, from following up missed calls to re-engaging previous leads and supporting customer communications.</p></div><span class="ta-section-tag">Flexible add-ons</span></div><div class="ta-grid"><article class="ta-card" data-service="Missed-Call Text Back"><div class="ta-visual ta-visual-phone" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-phone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-phone)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="17" width="64" height="87" rx="12"/><path d="M45 31h30M45 81h30"/><path d="M49 50c0 10 8 18 18 18l5-7-9-5-4 4c-3-2-5-4-6-7l4-4-5-8z"/><path d="m84 27 17 0 0 17"/></g></svg></div><div class="ta-card-body"><h3>Missed-Call Text Back</h3><p class="ta-card-intro">Turn missed calls into new opportunities with automatic text follow-ups.</p><div class="ta-price" data-price-kind="monthly" data-usd="60" data-aud="86" data-gbp="45" data-eur="54"><span class="ta-price-value" data-price-main>$60/month</span></div><p class="ta-detail">When your AI Receptionist is not active 24/7, automatically text callers who could not reach your business and offer a way to continue the enquiry, request a callback or move towards a booking.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Missed-Call Text Back">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Old Lead Reactivation"><div class="ta-visual ta-visual-refresh" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-refresh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-refresh)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M90 42a32 32 0 0 0-55-13l-8 8M27 24v13h13M30 67a32 32 0 0 0 55 13l8-8M93 86V73H80"/><circle cx="60" cy="55" r="17"/><path d="M53 55h14M60 48v14"/></g></svg></div><div class="ta-card-body"><h3>Old Lead Reactivation</h3><p class="ta-card-intro">Find new opportunities in your existing lead and customer database.</p><div class="ta-price" data-price-kind="oneoff" data-usd="129" data-aud="185" data-gbp="97" data-eur="115"><span class="ta-price-value" data-price-main>$129 one-off</span></div><p class="ta-detail">Reconnect through email, SMS and AI calling campaigns, identify renewed interest and book appointments for interested prospects.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Old Lead Reactivation">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Payment Handling & Invoicing"><div class="ta-visual ta-visual-payment" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-payment" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-payment)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="27" width="86" height="59" rx="8"/><path d="M17 43h86M30 60h25M30 71h15"/><circle cx="82" cy="67" r="9"/><path d="m78 67 3 3 5-6"/></g></svg></div><div class="ta-card-body"><h3>Payment Handling & Invoicing</h3><p class="ta-card-intro">Make payment-related tasks easier with supported workflows.</p><div class="ta-price" data-price-kind="monthly" data-usd="30" data-aud="43" data-gbp="22" data-eur="27"><span class="ta-price-value" data-price-main>$30/month</span></div><p class="ta-detail">Create payment links and invoices, send payment reminders and automate supported payment workflows. Third-party transaction fees may apply.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Payment Handling & Invoicing">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="WhatsApp Integration"><div class="ta-visual ta-visual-chat" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-chat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-chat)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 24h80v55H56L35 96V79H20z"/><path d="M35 42h49M35 54h37M35 66h24"/><circle cx="92" cy="25" r="12"/></g></svg></div><div class="ta-card-body"><h3>WhatsApp Integration</h3><p class="ta-card-intro">Extend customer communication through supported WhatsApp calling and messaging.</p><div class="ta-price" data-price-kind="monthly" data-usd="15" data-aud="22" data-gbp="11" data-eur="13"><span class="ta-price-value" data-price-main>$15/month</span></div><p class="ta-detail">Connect WhatsApp calling and messaging to your Zailux setup so customers can interact through supported WhatsApp functionality.</p><a class="ta-enquire" href="/home#section-11" data-service-link="WhatsApp Integration">Enquire Now <span aria-hidden="true">↗</span></a></div></article></div></div></section>
 <section class="ta-section" id="ta-websites"><div class="ta-wrap"><div class="ta-section-heading"><div><h2>Websites &amp; Custom Solutions</h2><p>Build a stronger digital experience with a tailored website, a helpful on-site chatbot or custom software designed around a specific business need.</p></div><span class="ta-section-tag">Built around your business</span></div><div class="ta-grid"><article class="ta-card ta-feature-card" data-service="Website Design & Development"><div class="ta-visual ta-visual-website" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-website" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-website)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="25" width="77" height="54" rx="5"/><path d="M10 38h77M20 49h27M20 58h40M20 68h20"/><rect x="72" y="48" width="31" height="50" rx="5"/><path d="M81 57h13M81 86h13"/></g></svg></div><div class="ta-card-body"><div class="ta-eyebrow">Featured service</div><h3>Website Design & Development</h3><p class="ta-card-intro">A polished, responsive website tailored to your business and built to support your next stage of growth.</p><div class="ta-price ta-price-dual" data-price-kind="setup" data-usd="650" data-aud="934" data-gbp="490" data-eur="580"><span class="ta-price-value" data-price-main>$650 setup + $50/month</span></div><p class="ta-detail">AI-assisted website design and development, mobile-friendly layouts, SEO-optimised foundations, tailored visual design, contact forms, appointment booking, CRM integration with Zailux, custom features where appropriate and hosting.</p><div class="ta-demo-note"><strong>Want to see the possibilities first?</strong><p>Not sure what your new website could look like? You can enquire about a free website demo or preview to get a feel for the design and possibilities before deciding to proceed.</p></div><a class="ta-enquire" href="/home#section-11" data-service-link="Website Design & Development">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="AI Chatbot for Your Website"><div class="ta-visual ta-visual-chatbot" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-chatbot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-chatbot)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="24" width="66" height="57" rx="8"/><path d="M30 39h38M30 50h26M30 62h31"/><path d="M70 76h22l10 11V57"/><circle cx="91" cy="42" r="13"/><path d="M86 42h10M91 37v10"/></g></svg></div><div class="ta-card-body"><h3>AI Chatbot for Your Website</h3><p class="ta-card-intro">Help website visitors find answers and take the next step.</p><div class="ta-price" data-price-kind="monthly" data-usd="40" data-aud="57" data-gbp="30" data-eur="35"><span class="ta-price-value" data-price-main>$40/month</span></div><p class="ta-detail">Answers common questions using supplied business information, guides visitors towards enquiries and can support appointment-booking journeys where configured. It can be added to an existing website or included in a new website project.</p><a class="ta-enquire" href="/home#section-11" data-service-link="AI Chatbot for Your Website">Enquire Now <span aria-hidden="true">↗</span></a></div></article><article class="ta-card" data-service="Custom Business Software"><div class="ta-visual ta-visual-software" aria-hidden="true"><div class="ta-visual-orbit"></div><svg viewBox="0 0 120 120" role="img" focusable="false"><defs><linearGradient id="grad-software" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><g fill="none" stroke="url(#grad-software)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="20" width="92" height="72" rx="8"/><path d="M14 36h92M27 49h18M27 60h31M27 72h23"/><rect x="69" y="48" width="24" height="29" rx="4"/><path d="M75 57h12M75 65h12"/></g></svg></div><div class="ta-card-body"><h3>Custom Business Software</h3><p class="ta-card-intro">Bespoke applications and digital tools shaped around your business problem.</p><div class="ta-price"><span class="ta-price-value">Custom quote</span></div><p class="ta-detail">Work with Zailux to scope a tailored application, digital tool or software solution. Pricing depends on your requirements and the agreed project scope.</p><a class="ta-enquire" href="/home#section-11" data-service-link="Custom Business Software">Enquire Now <span aria-hidden="true">↗</span></a></div></article></div></div></section>
 <section class="ta-closing"><div class="ta-wrap"><div class="ta-closing-panel"><h2>Not sure which tools are right for you?</h2><p>Tell us what you want to improve. We can help you explore the options and identify a setup that fits your business goals.</p><div class="ta-closing-actions"><a class="ta-primary-btn" href="/home#section-11" data-service-link="General enquiry">Find Your AI Solution <span aria-hidden="true">↗</span></a><a class="ta-email" href="mailto:info@zailuxai.com">Or contact us directly at info@zailuxai.com</a></div></div></div></section>

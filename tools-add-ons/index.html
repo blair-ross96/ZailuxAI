@@ -132,8 +132,8 @@ html{scroll-behavior:smooth}
 .ta-hero-actions{margin-top:25px;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap}
 .ta-hero-link{display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 18px;border:1px solid rgba(162,89,255,.32);background:rgba(162,89,255,.08);border-radius:11px;transition:all .2s ease}
 .ta-hero-link:hover{background:rgba(162,89,255,.16);border-color:rgba(192,132,252,.7);transform:translateY(-2px)}
-.ta-currency-wrap{display:flex;justify-content:center;margin:30px auto 0;position:relative;z-index:100;isolation:isolate}
-.clone-pricing-currency-dropdown{position:relative;width:210px;max-width:calc(100vw - 40px)}
+.ta-currency-wrap{display:flex;justify-content:center;margin:30px auto 0;position:relative;z-index:9999;isolation:isolate;pointer-events:auto}
+.clone-pricing-currency-dropdown{position:relative;width:210px;max-width:calc(100vw - 40px);pointer-events:auto}
 .clone-pricing-currency-btn{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(162,89,255,.35);border-radius:12px;padding:12px 18px;color:#fff;display:flex;align-items:center;justify-content:space-between;cursor:pointer;touch-action:manipulation;transition:all .2s ease;font-family:Inter,sans-serif}
 .clone-pricing-currency-btn:hover,.clone-pricing-currency-btn:focus-visible{border-color:rgba(162,89,255,.75);box-shadow:0 0 18px rgba(162,89,255,.2);outline:none}
 .clone-pricing-curr-left{display:flex;align-items:center;gap:8px}.clone-pricing-curr-label-dim{font-size:12px;color:#9ca3af}.clone-pricing-curr-val{font-size:13px;font-weight:700;color:#fff}.clone-pricing-chevron{width:16px;height:16px;color:#9ca3af;transition:transform .2s ease}
@@ -458,15 +458,18 @@ html{scroll-behavior:smooth}
      document.documentElement.dataset.zailuxCurrency=curr;
      if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}
    }
-   btn.addEventListener('click',e=>{
+   btn.addEventListener('click',function(e){
      e.preventDefault();e.stopPropagation();
      if(menu.classList.contains('is-open'))closeMenu();else openMenu();
    });
-   menu.querySelectorAll('[data-curr]').forEach(o=>o.addEventListener('click',e=>{
-     e.preventDefault();e.stopPropagation();setCurrency(o.dataset.curr);closeMenu();
-   }));
-   document.addEventListener('click',e=>{if(!e.target.closest('.ta-currency-wrap'))closeMenu();});
-   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+   menu.addEventListener('click',function(e){
+     const option=e.target.closest('[data-curr]');
+     if(!option)return;
+     e.preventDefault();e.stopPropagation();
+     setCurrency(option.dataset.curr);closeMenu();
+   });
+   document.addEventListener('click',function(e){if(!e.target.closest('.clone-pricing-currency-dropdown'))closeMenu();});
+   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
    let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}
    setCurrency(curr,false);
    closeMenu();

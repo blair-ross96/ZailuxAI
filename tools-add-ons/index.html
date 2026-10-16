@@ -424,16 +424,49 @@ html{scroll-behavior:smooth}
 </div>
 <script>
 (function(){
- const btn=document.getElementById('ta-currency-btn'),menu=document.getElementById('ta-currency-menu'),label=document.getElementById('ta-currency-label'),chev=document.getElementById('ta-currency-chevron');
- const currencyLabels={USD:'USD ($)',AUD:'AUD (A$)',GBP:'GBP (£)',EUR:'EUR (€)'};
- function open(){menu.classList.add('is-open');btn.setAttribute('aria-expanded','true');if(chev)chev.style.transform='rotate(180deg)'}
- function close(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');if(chev)chev.style.transform='rotate(0deg)'}
- function formatPrice(n,curr){const symbol={USD:'$',AUD:'A$',GBP:'£',EUR:'€'}[curr];return symbol+n}
- function setCurrency(curr, persist=true){if(!currencyLabels[curr])return;label.textContent=currencyLabels[curr];document.querySelectorAll('.ta-price[data-price-kind]').forEach(el=>{const kind=el.dataset.priceKind;const n=el.dataset[curr.toLowerCase()];const main=el.querySelector('[data-price-main]');if(!main)return;if(kind==='setup'){const monthly={USD:50,AUD:72,GBP:38,EUR:44}[curr];main.textContent=formatPrice(n,curr)+' setup + '+formatPrice(monthly,curr)+'/month'}else if(kind==='oneoff'){main.textContent=formatPrice(n,curr)+' one-off'}else{main.textContent=formatPrice(n,curr)+'/month'}});menu.querySelectorAll('[data-curr]').forEach(o=>o.setAttribute('aria-pressed',o.dataset.curr===curr?'true':'false'));document.documentElement.dataset.zailuxCurrency=curr;if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}}
- btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();menu.classList.contains('is-open')?close():open()});
- menu.querySelectorAll('[data-curr]').forEach(o=>o.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();setCurrency(o.dataset.curr);close()}));
- document.addEventListener('click',e=>{if(!e.target.closest('.ta-currency-wrap'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
- let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}setCurrency(curr,false);
+ const btn=document.getElementById('ta-currency-btn');
+ const menu=document.getElementById('ta-currency-menu');
+ const label=document.getElementById('ta-currency-label');
+ const chev=document.getElementById('ta-currency-chevron');
+ if(btn && menu && label){
+   const currencyLabels={USD:'USD ($)',AUD:'AUD (A$)',GBP:'GBP (£)',EUR:'EUR (€)'};
+   function openMenu(){menu.classList.add('is-open');btn.setAttribute('aria-expanded','true');menu.style.display='block';if(chev)chev.style.transform='rotate(180deg)';}
+   function closeMenu(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');menu.style.display='none';if(chev)chev.style.transform='rotate(0deg)';}
+   function formatPrice(n,curr){const symbol={USD:'$',AUD:'A$',GBP:'£',EUR:'€'}[curr];return symbol+n;}
+   function setCurrency(curr,persist=true){
+     if(!currencyLabels[curr])return;
+     label.textContent=currencyLabels[curr];
+     document.querySelectorAll('.ta-price[data-price-kind]').forEach(el=>{
+       const kind=el.dataset.priceKind;
+       const n=el.dataset[curr.toLowerCase()];
+       const main=el.querySelector('[data-price-main]');
+       if(!main||n===undefined)return;
+       if(kind==='setup'){
+         const monthly={USD:50,AUD:72,GBP:38,EUR:44}[curr];
+         main.textContent=formatPrice(n,curr)+' setup + '+formatPrice(monthly,curr)+'/month';
+       }else if(kind==='oneoff'){
+         main.textContent=formatPrice(n,curr)+' one-off';
+       }else{
+         main.textContent=formatPrice(n,curr)+'/month';
+       }
+     });
+     menu.querySelectorAll('[data-curr]').forEach(o=>o.setAttribute('aria-pressed',o.dataset.curr===curr?'true':'false'));
+     document.documentElement.dataset.zailuxCurrency=curr;
+     if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}
+   }
+   btn.addEventListener('click',e=>{
+     e.preventDefault();e.stopPropagation();
+     if(menu.classList.contains('is-open'))closeMenu();else openMenu();
+   });
+   menu.querySelectorAll('[data-curr]').forEach(o=>o.addEventListener('click',e=>{
+     e.preventDefault();e.stopPropagation();setCurrency(o.dataset.curr);closeMenu();
+   }));
+   document.addEventListener('click',e=>{if(!e.target.closest('.ta-currency-wrap'))closeMenu();});
+   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+   let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}
+   setCurrency(curr,false);
+   closeMenu();
+ }
  // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.
  document.querySelectorAll('[data-service-link]').forEach(a=>{const service=a.getAttribute('data-service-link');a.href='/home?service='+encodeURIComponent(service)+'#section-11'});
  // Dropdown toggle supports keyboard and touch through the native button.

@@ -133,11 +133,18 @@ html{scroll-behavior:smooth}
 .ta-hero-link{display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 18px;border:1px solid rgba(162,89,255,.32);background:rgba(162,89,255,.08);border-radius:11px;transition:all .2s ease}
 .ta-hero-link:hover{background:rgba(162,89,255,.16);border-color:rgba(192,132,252,.7);transform:translateY(-2px)}
 .ta-currency-wrap{display:flex;justify-content:center;margin:30px auto 0;position:relative;z-index:9999;isolation:isolate;pointer-events:auto}
-.clone-pricing-currency-dropdown{display:flex;align-items:center;gap:10px;width:fit-content;max-width:calc(100vw - 40px);pointer-events:auto;background:rgba(0,0,0,.5);border:1px solid rgba(162,89,255,.35);border-radius:12px;padding:8px 12px;transition:border-color .2s ease,box-shadow .2s ease}
-.clone-pricing-currency-dropdown:focus-within,.clone-pricing-currency-dropdown:hover{border-color:rgba(162,89,255,.75);box-shadow:0 0 18px rgba(162,89,255,.2)}
-.clone-pricing-curr-label-dim{font-size:12px;color:#9ca3af;white-space:nowrap}
-.clone-pricing-currency-select{min-width:105px;max-width:150px;background:#0d0617;border:0;border-radius:6px;padding:7px 24px 7px 8px;color:#fff;font:700 13px Inter,sans-serif;cursor:pointer;outline:none;color-scheme:dark}
-.clone-pricing-currency-select option{background:#0d0617;color:#fff}
+.clone-pricing-currency-dropdown{position:relative;width:190px;max-width:calc(100vw - 40px)}
+.clone-pricing-currency-btn{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(162,89,255,.35);border-radius:12px;padding:12px 18px;color:#fff;display:flex;align-items:center;justify-content:space-between;cursor:pointer;touch-action:manipulation;-webkit-appearance:none;appearance:none;transition:all .2s ease;outline:none;font-family:Inter,sans-serif}
+.clone-pricing-currency-btn:hover{border-color:rgba(162,89,255,.65);box-shadow:0 0 18px rgba(162,89,255,.25)}
+.clone-pricing-curr-left{display:flex;align-items:center;gap:8px}
+.clone-pricing-curr-label-dim{font-size:13px;color:#9ca3af}
+.clone-pricing-curr-val{font-size:14px;font-weight:700;color:#fff}
+.clone-pricing-chevron{width:16px;height:16px;color:#9ca3af;transition:transform .2s ease}
+.clone-pricing-currency-menu{position:absolute;top:calc(100% + 6px);left:0;width:100%;z-index:2147483000;background:#0d0617;border:1px solid rgba(162,89,255,.35);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.8);display:none;visibility:hidden;opacity:0;pointer-events:none;transform:translateZ(0)}
+.clone-pricing-currency-menu.is-open{display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;z-index:2147483000!important}
+.clone-pricing-curr-opt{width:100%;text-align:left;padding:11px 16px;font-size:13px;color:#d1d5db;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;touch-action:manipulation;-webkit-appearance:none;appearance:none;transition:all .15s ease;font-family:Inter,sans-serif;display:block;position:relative;z-index:10001;pointer-events:auto;min-height:44px}
+.clone-pricing-curr-opt:last-child{border-bottom:0}
+.clone-pricing-curr-opt:hover,.clone-pricing-curr-opt[aria-pressed="true"]{background:rgba(162,89,255,.2);color:#fff}
 .ta-section{padding:46px 0 50px;scroll-margin-top:95px}.ta-section+.ta-section{border-top:1px solid rgba(255,255,255,.055)}
 .ta-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}.ta-section-heading h2{font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(27px,3.5vw,39px);letter-spacing:-.035em;line-height:1.15;margin:0 0 9px}.ta-section-heading p{max-width:580px;color:#9ca3af;line-height:1.65;margin:0;font-size:14px}
 .ta-section-tag{flex:0 0 auto;border:1px solid rgba(162,89,255,.25);border-radius:99px;padding:8px 12px;font-size:11px;color:#d8b4fe;background:rgba(162,89,255,.06);letter-spacing:.06em}
@@ -392,7 +399,7 @@ html{scroll-behavior:smooth}
           // fail silently
         }
       })();
-      </script><div class="ta-wrap"><span class="ta-kicker"><span class="ta-kicker-dot"></span> Expand your Zailux setup</span><h1><span class="ta-gradient">Explore Our Tools &amp; Add-ons</span></h1><p>Expand what Zailux can do for your business. Explore additional platform tools, AI agent add-ons, website services and custom-built solutions designed to help you work smarter and turn more opportunities into revenue.</p><div class="ta-hero-actions"><a class="ta-hero-link" href="#ta-platform">Explore platform tools <span aria-hidden="true">↓</span></a><a class="ta-hero-link" href="/home#section-11">Discuss your business <span aria-hidden="true">↗</span></a></div><div class="ta-currency-wrap"><div class="clone-pricing-currency-dropdown"><label class="clone-pricing-curr-label-dim" for="ta-currency-select">Currency</label><select class="clone-pricing-currency-select" id="ta-currency-select" aria-label="Select currency"><option value="USD">USD ($)</option><option value="AUD" selected>AUD (A$)</option><option value="GBP">GBP (£)</option><option value="EUR">EUR (€)</option></select></div></div></div></section>
+      </script><div class="ta-wrap"><span class="ta-kicker"><span class="ta-kicker-dot"></span> Expand your Zailux setup</span><h1><span class="ta-gradient">Explore Our Tools &amp; Add-ons</span></h1><p>Expand what Zailux can do for your business. Explore additional platform tools, AI agent add-ons, website services and custom-built solutions designed to help you work smarter and turn more opportunities into revenue.</p><div class="ta-hero-actions"><a class="ta-hero-link" href="#ta-platform">Explore platform tools <span aria-hidden="true">↓</span></a><a class="ta-hero-link" href="/home#section-11">Discuss your business <span aria-hidden="true">↗</span></a></div><div class="ta-currency-wrap"><div class="clone-pricing-currency-dropdown" id="ta-currency-wrap"><button type="button" class="clone-pricing-currency-btn" id="ta-currency-btn" aria-haspopup="true" aria-expanded="false"><div class="clone-pricing-curr-left"><span class="clone-pricing-curr-label-dim">Currency:</span><span class="clone-pricing-curr-val" id="ta-currency-label">AUD A$</span></div><svg width="24" height="24" class="clone-pricing-chevron" id="ta-currency-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button><div class="clone-pricing-currency-menu" id="ta-currency-menu"><button type="button" class="clone-pricing-curr-opt" data-curr="AUD">AUD $ AUD</button><button type="button" class="clone-pricing-curr-opt" data-curr="EUR">EUR € EUR</button><button type="button" class="clone-pricing-curr-opt" data-curr="GBP">GBP £ GBP</button><button type="button" class="clone-pricing-curr-opt" data-curr="USD">USD $ USD</button></div></div></div></div></section>
 <section class="ta-section" id="ta-platform"><div class="ta-wrap"><div class="ta-section-heading"><div><h2>Zailux Platform Tools</h2><p>Extend your platform with tools that help you manage everyday work, customer reputation, marketing activity and performance insights.</p></div><span class="ta-section-tag">Business tools &amp; insights</span></div><div class="ta-grid ta-platform-grid"><article class="ta-card" data-service="AI Employee"><div class="ta-visual ta-visual-assistant" aria-hidden="true"><img class="ta-card-image" src="https://images.openai.com/static-rsc-4/2w4x-BPgFvIvYW1D90cHsofUdwNckdiNK2kBbDybddwMD9CBP6JegvLot4a-FQbOBlypLjFAMXXMNPr8ZsLtL_KaWEZGn-HrVu4641ro3RGjvbXlX6ecTIVBpCCiTdUqMTiozBXOAkGYhTsXGiZsePZ3RFluHDrXtwCYedRYUW4?purpose=inline" alt="AI Employee futuristic assistant visual" loading="lazy" decoding="async"></div><div class="ta-card-body">
 <h3>AI Employee</h3>
 <p class="ta-card-intro">Think of it like ChatGPT or Claude, but built into Zailux and connected to your business workspace. Instead of only answering questions, AI Employee can also take supported actions in your system — such as finding information, updating records and helping carry out workflows — based on your account permissions and enabled tools.</p>
@@ -427,9 +434,46 @@ html{scroll-behavior:smooth}
 </div>
 <script>
 (function(){
- const select=document.getElementById('ta-currency-select');
- if(select){
-   function formatPrice(n,curr){const symbol={USD:'
+ const wrap=document.getElementById('ta-currency-wrap');
+ const btn=document.getElementById('ta-currency-btn');
+ const menu=document.getElementById('ta-currency-menu');
+ const label=document.getElementById('ta-currency-label');
+ const chev=document.getElementById('ta-currency-chevron');
+ if(wrap&&btn&&menu&&label){
+   const currencyLabels={USD:'USD $',AUD:'AUD A$',GBP:'GBP £',EUR:'EUR €'};
+   function openMenu(){menu.classList.add('is-open');menu.style.setProperty('display','block','important');menu.style.visibility='visible';menu.style.opacity='1';menu.style.pointerEvents='auto';btn.setAttribute('aria-expanded','true');if(chev)chev.style.transform='rotate(180deg)';}
+   function closeMenu(){menu.classList.remove('is-open');menu.style.setProperty('display','none','important');menu.style.visibility='hidden';menu.style.opacity='0';menu.style.pointerEvents='none';btn.setAttribute('aria-expanded','false');if(chev)chev.style.transform='rotate(0deg)';}
+   function formatPrice(n,curr){const symbol={USD:'$',AUD:'A$',GBP:'£',EUR:'€'}[curr];return symbol+n;}
+   function setCurrency(curr,persist=true){
+     if(!currencyLabels[curr])curr='AUD';
+     label.textContent=currencyLabels[curr];
+     document.querySelectorAll('.ta-price[data-price-kind]').forEach(el=>{
+       const kind=el.dataset.priceKind;
+       const n=el.dataset[curr.toLowerCase()];
+       const main=el.querySelector('[data-price-main]');
+       if(!main||n===undefined)return;
+       if(kind==='setup'){
+         const monthly={USD:50,AUD:72,GBP:38,EUR:44}[curr];
+         main.textContent=formatPrice(n,curr)+' setup + '+formatPrice(monthly,curr)+'/month';
+       }else if(kind==='oneoff'){
+         main.textContent=formatPrice(n,curr)+' one-off';
+       }else{
+         main.textContent=formatPrice(n,curr)+'/month';
+       }
+     });
+     menu.querySelectorAll('[data-curr]').forEach(o=>o.setAttribute('aria-pressed',o.dataset.curr===curr?'true':'false'));
+     document.documentElement.dataset.zailuxCurrency=curr;
+     if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}
+   }
+   btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();if(menu.classList.contains('is-open'))closeMenu();else openMenu();});
+   btn.addEventListener('touchstart',function(e){e.preventDefault();e.stopPropagation();if(menu.classList.contains('is-open'))closeMenu();else openMenu();},{passive:false});
+   menu.querySelectorAll('[data-curr]').forEach(option=>option.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();setCurrency(option.dataset.curr);closeMenu();}));
+   document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeMenu();});
+   document.addEventListener('touchstart',function(e){if(!wrap.contains(e.target))closeMenu();},{passive:true});
+   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+   let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}
+   setCurrency(curr,false);closeMenu();
+ }
  // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.
  document.querySelectorAll('[data-service-link]').forEach(a=>{const service=a.getAttribute('data-service-link');a.href='/home?service='+encodeURIComponent(service)+'#section-11'});
  // Dropdown toggle supports keyboard and touch through the native button.

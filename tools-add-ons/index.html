@@ -482,42 +482,4 @@ html{scroll-behavior:smooth}
  const toggle=document.querySelector('.nav-dropdown-toggle'),drop=document.querySelector('.nav-dropdown');if(toggle&&drop){toggle.addEventListener('click',()=>{const isOpen=drop.classList.toggle('open');toggle.setAttribute('aria-expanded',String(isOpen))});document.addEventListener('click',e=>{if(!drop.contains(e.target)){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}
 })();
 </script>
-</body></html>,AUD:'A
- // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.
- document.querySelectorAll('[data-service-link]').forEach(a=>{const service=a.getAttribute('data-service-link');a.href='/?service='+encodeURIComponent(service)+'#section-11'});
- // Dropdown toggle supports keyboard and touch through the native button.
- const toggle=document.querySelector('.nav-dropdown-toggle'),drop=document.querySelector('.nav-dropdown');if(toggle&&drop){toggle.addEventListener('click',()=>{const isOpen=drop.classList.toggle('open');toggle.setAttribute('aria-expanded',String(isOpen))});document.addEventListener('click',e=>{if(!drop.contains(e.target)){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}
-})();
-</script>
-</body></html>,GBP:'£',EUR:'€'}[curr];return symbol+n;}
-   function setCurrency(curr,persist=true){
-     if(!['USD','AUD','GBP','EUR'].includes(curr))curr='AUD';
-     select.value=curr;
-     document.querySelectorAll('.ta-price[data-price-kind]').forEach(el=>{
-       const kind=el.dataset.priceKind;
-       const n=el.dataset[curr.toLowerCase()];
-       const main=el.querySelector('[data-price-main]');
-       if(!main||n===undefined)return;
-       if(kind==='setup'){
-         const monthly={USD:50,AUD:72,GBP:38,EUR:44}[curr];
-         main.textContent=formatPrice(n,curr)+' setup + '+formatPrice(monthly,curr)+'/month';
-       }else if(kind==='oneoff'){
-         main.textContent=formatPrice(n,curr)+' one-off';
-       }else{
-         main.textContent=formatPrice(n,curr)+'/month';
-       }
-     });
-     document.documentElement.dataset.zailuxCurrency=curr;
-     if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}
-   }
-   select.addEventListener('change',function(){setCurrency(select.value);});
-   let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}
-   setCurrency(curr,false);
- }
- // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.
- document.querySelectorAll('[data-service-link]').forEach(a=>{const service=a.getAttribute('data-service-link');a.href='/?service='+encodeURIComponent(service)+'#section-11'});
- // Dropdown toggle supports keyboard and touch through the native button.
- const toggle=document.querySelector('.nav-dropdown-toggle'),drop=document.querySelector('.nav-dropdown');if(toggle&&drop){toggle.addEventListener('click',()=>{const isOpen=drop.classList.toggle('open');toggle.setAttribute('aria-expanded',String(isOpen))});document.addEventListener('click',e=>{if(!drop.contains(e.target)){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){drop.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}
-})();
-</script>
 </body></html>

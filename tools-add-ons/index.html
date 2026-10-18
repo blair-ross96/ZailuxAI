@@ -441,8 +441,8 @@ html{scroll-behavior:smooth}
  const chev=document.getElementById('ta-currency-chevron');
  if(wrap&&btn&&menu&&label){
    const currencyLabels={USD:'USD $',AUD:'AUD A$',GBP:'GBP £',EUR:'EUR €'};
-   function openMenu(){menu.classList.add('is-open');menu.style.setProperty('display','block','important');menu.style.visibility='visible';menu.style.opacity='1';menu.style.pointerEvents='auto';btn.setAttribute('aria-expanded','true');if(chev)chev.style.transform='rotate(180deg)';}
-   function closeMenu(){menu.classList.remove('is-open');menu.style.setProperty('display','none','important');menu.style.visibility='hidden';menu.style.opacity='0';menu.style.pointerEvents='none';btn.setAttribute('aria-expanded','false');if(chev)chev.style.transform='rotate(0deg)';}
+   function openMenu(){const rect=btn.getBoundingClientRect();document.body.appendChild(menu);menu.style.position='fixed';menu.style.top=(rect.bottom+6)+'px';menu.style.left=rect.left+'px';menu.style.width=rect.width+'px';menu.style.zIndex='2147483647';menu.classList.add('is-open');menu.style.setProperty('display','block','important');menu.style.visibility='visible';menu.style.opacity='1';menu.style.pointerEvents='auto';btn.setAttribute('aria-expanded','true');if(chev)chev.style.transform='rotate(180deg)';}
+   function closeMenu(){menu.classList.remove('is-open');menu.style.setProperty('display','none','important');menu.style.visibility='hidden';menu.style.opacity='0';menu.style.pointerEvents='none';menu.style.position='absolute';menu.style.top='calc(100% + 6px)';menu.style.left='0';menu.style.width='100%';menu.style.zIndex='2147483000';if(menu.parentElement!==wrap)wrap.appendChild(menu);btn.setAttribute('aria-expanded','false');if(chev)chev.style.transform='rotate(0deg)';}
    function formatPrice(n,curr){const symbol={USD:'$',AUD:'A$',GBP:'£',EUR:'€'}[curr];return symbol+n;}
    function setCurrency(curr,persist=true){
      if(!currencyLabels[curr])curr='AUD';

@@ -473,7 +473,7 @@ html{scroll-behavior:smooth}
    document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeMenu();});
    document.addEventListener('touchstart',function(e){if(!wrap.contains(e.target))closeMenu();},{passive:true});
    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
-   let curr='AUD';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'AUD'}catch(e){}
+   let curr='GBP';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'GBP'}catch(e){}
    setCurrency(curr,false);closeMenu();
  }
  // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.

@@ -2900,10 +2900,10 @@ html { scroll-behavior: smooth; }
           </svg>
         </button>
         <div class="clone-pricing-currency-menu" id="currency-menu">
-          <button type="button" class="clone-pricing-curr-opt" data-curr="AUD">AUD</button>
-          <button type="button" class="clone-pricing-curr-opt" data-curr="EUR">EUR</button>
-          <button type="button" class="clone-pricing-curr-opt" data-curr="GBP">GBP</button>
-          <button type="button" class="clone-pricing-curr-opt" data-curr="USD">USD</button>
+          <button type="button" class="clone-pricing-curr-opt" data-curr="AUD">AUD A$</button>
+          <button type="button" class="clone-pricing-curr-opt" data-curr="EUR">EUR €</button>
+          <button type="button" class="clone-pricing-curr-opt" data-curr="GBP">GBP £</button>
+          <button type="button" class="clone-pricing-curr-opt" data-curr="USD">USD $</button>
         </div>
       </div>
     </div>
@@ -3066,6 +3066,9 @@ html { scroll-behavior: smooth; }
       currBtn.setAttribute('aria-expanded', 'true');
       if (chevron) chevron.style.transform = 'rotate(180deg)';
     }
+
+    // Close the menu on scroll so it never floats independently of its button.
+    window.addEventListener('scroll', closeMenu, { passive: true });
 
     function setCurrency(curr) {
       var data = rates[curr];

@@ -3070,7 +3070,7 @@ html { scroll-behavior: smooth; }
     // Close the menu on scroll so it never floats independently of its button.
     window.addEventListener('scroll', closeMenu, { passive: true });
 
-    function setCurrency(curr) {
+    function setCurrency(curr, persist) {
       var data = rates[curr];
       if (!data) return;
       if (currLabel) currLabel.textContent = data.label;
@@ -3132,7 +3132,7 @@ html { scroll-behavior: smooth; }
       option.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        setCurrency(option.getAttribute('data-curr'));
+        setCurrency(option.getAttribute('data-curr'), true);
         closeMenu();
       });
     });
@@ -3147,7 +3147,9 @@ html { scroll-behavior: smooth; }
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') closeMenu();
     });
-    setCurrency('AUD');
+    var initialCurrency = 'GBP';
+    try { initialCurrency = localStorage.getItem('zailuxPreferredCurrency') || 'GBP'; } catch (e) {}
+    setCurrency(initialCurrency, false);
   }
 
   if (document.readyState === 'loading') {

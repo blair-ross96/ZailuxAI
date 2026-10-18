@@ -73,6 +73,38 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
   box-shadow:0 14px 38px rgba(0,0,0,.3),0 0 28px rgba(162,89,255,.13);
 }
 
+
+/* Platform preview placeholders — replace these mockups with real screenshots later */
+.platform-preview-section{padding:76px 0;background:linear-gradient(180deg,#08060c,#050505)}
+.platform-preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.platform-preview-card{overflow:hidden;border:1px solid rgba(162,89,255,.22);border-radius:19px;background:linear-gradient(155deg,rgba(20,12,29,.94),rgba(8,7,12,.98));box-shadow:0 12px 32px rgba(0,0,0,.24),0 0 24px rgba(162,89,255,.045);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.platform-preview-card:hover{transform:translateY(-4px);border-color:rgba(162,89,255,.48);box-shadow:0 18px 42px rgba(0,0,0,.32),0 0 28px rgba(162,89,255,.13)}
+.platform-mockup{height:220px;padding:13px;background:radial-gradient(ellipse at 50% 0%,rgba(126,58,237,.18),transparent 65%),#09070e;border-bottom:1px solid rgba(255,255,255,.07)}
+.platform-window{height:100%;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:#0e0b15}
+.platform-window-bar{height:27px;display:flex;align-items:center;gap:5px;padding:0 9px;border-bottom:1px solid rgba(255,255,255,.07);background:#15101e}
+.platform-window-bar i{width:5px;height:5px;border-radius:50%;background:#8b5cf6;opacity:.85}
+.platform-window-title{margin-left:6px;color:#b8adca;font-size:8px}
+.platform-ui{display:grid;grid-template-columns:43px 1fr;height:calc(100% - 27px)}
+.platform-sidebar{padding:10px 7px;border-right:1px solid rgba(255,255,255,.06);display:grid;align-content:start;gap:8px}
+.platform-sidebar span{height:5px;border-radius:4px;background:rgba(183,154,230,.2)}
+.platform-sidebar span:first-child{background:#8b5cf6;width:70%}
+.platform-content{padding:10px;min-width:0}
+.platform-ui-heading{height:8px;width:55%;border-radius:4px;background:#e5d7ff;margin-bottom:10px;opacity:.8}
+.platform-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:9px}
+.platform-stat{height:31px;padding:6px;border:1px solid rgba(162,89,255,.16);border-radius:5px;background:rgba(162,89,255,.07)}
+.platform-stat b{display:block;width:55%;height:5px;border-radius:3px;background:#c4a5ff;margin-bottom:5px}
+.platform-stat span{display:block;width:80%;height:3px;border-radius:3px;background:rgba(255,255,255,.18)}
+.platform-table{display:grid;gap:5px}
+.platform-table span{height:5px;border-radius:3px;background:rgba(255,255,255,.11)}
+.platform-table span:nth-child(odd){width:92%}.platform-table span:nth-child(even){width:72%}
+.platform-preview-copy{padding:20px 21px 22px}
+.platform-preview-label{font-size:10px;color:#c4a5ff;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.platform-preview-copy h3{margin:8px 0;font-size:18px}
+.platform-preview-copy p{margin:0;color:#aaa4b5;font-size:12px;line-height:1.7}
+.platform-placeholder-note{margin:22px auto 0;max-width:700px;text-align:center;color:#92879f;font-size:12px;line-height:1.7}
+@media(max-width:800px){.platform-preview-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.platform-preview-section{padding:56px 0}.platform-preview-grid{grid-template-columns:1fr}.platform-mockup{height:220px}}
+
 </style>
 </head>
 <body>
@@ -119,6 +151,32 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
    <article class="feature"><div class="feature-icon" aria-hidden="true">↗</div><h3>Route calls when needed</h3><p>Configure call transfers or escalation paths for situations that should reach a person, where supported by your setup.</p></article>
    <article class="feature"><div class="feature-icon" aria-hidden="true">◷</div><h3>Help outside busy hours</h3><p>Give callers a way to make an enquiry when your team cannot immediately pick up, subject to your chosen call flow.</p></article>
   </div>
+ </div>
+</section>
+<section class="platform-preview-section" id="platform-preview" aria-labelledby="platform-preview-title">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">A look inside</span><h2 id="platform-preview-title">Your business, <span class="gradient">all in one place.</span></h2><p>Explore the kinds of tools and information available through the Zailux platform.</p></div>
+  <div class="platform-preview-grid">
+   <article class="platform-preview-card">
+    <div class="platform-mockup" role="img" aria-label="Illustrative placeholder for a Zailux dashboard screenshot">
+     <div class="platform-window"><div class="platform-window-bar"><i></i><i></i><i></i><span class="platform-window-title">Zailux · Overview</span></div><div class="platform-ui"><div class="platform-sidebar"><span></span><span></span><span></span><span></span><span></span></div><div class="platform-content"><div class="platform-ui-heading"></div><div class="platform-stat-row"><div class="platform-stat"><b></b><span></span></div><div class="platform-stat"><b></b><span></span></div><div class="platform-stat"><b></b><span></span></div></div><div class="platform-table"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    </div>
+    <div class="platform-preview-copy"><span class="platform-preview-label">Preview 01</span><h3>Business Dashboard</h3><p>A central view of activity and key information for your business.</p></div>
+   </article>
+   <article class="platform-preview-card">
+    <div class="platform-mockup" role="img" aria-label="Illustrative placeholder for a Zailux conversations and calls screenshot">
+     <div class="platform-window"><div class="platform-window-bar"><i></i><i></i><i></i><span class="platform-window-title">Zailux · Conversations</span></div><div class="platform-ui"><div class="platform-sidebar"><span></span><span></span><span></span><span></span><span></span></div><div class="platform-content"><div class="platform-ui-heading"></div><div style="display:grid;grid-template-columns:1fr 1.2fr;gap:7px;height:118px"><div style="display:grid;gap:6px"><div class="platform-stat" style="height:24px"></div><div class="platform-stat" style="height:24px"></div><div class="platform-stat" style="height:24px"></div><div class="platform-stat" style="height:24px"></div></div><div style="padding:8px;border:1px solid rgba(162,89,255,.18);border-radius:6px;background:rgba(162,89,255,.05)"><div style="height:5px;width:65%;border-radius:3px;background:#c4a5ff;margin-bottom:9px"></div><div style="height:16px;width:85%;border-radius:5px;background:rgba(255,255,255,.09);margin-bottom:7px"></div><div style="height:16px;width:72%;border-radius:5px;background:rgba(162,89,255,.22);margin-left:auto"></div><div style="height:16px;width:80%;border-radius:5px;background:rgba(255,255,255,.09);margin-top:7px"></div></div></div></div></div></div>
+    </div>
+    <div class="platform-preview-copy"><span class="platform-preview-label">Preview 02</span><h3>Calls & Conversations</h3><p>Keep track of customer conversations and follow-up context.</p></div>
+   </article>
+   <article class="platform-preview-card">
+    <div class="platform-mockup" role="img" aria-label="Illustrative placeholder for a Zailux contacts and CRM screenshot">
+     <div class="platform-window"><div class="platform-window-bar"><i></i><i></i><i></i><span class="platform-window-title">Zailux · Contacts</span></div><div class="platform-ui"><div class="platform-sidebar"><span></span><span></span><span></span><span></span><span></span></div><div class="platform-content"><div class="platform-ui-heading"></div><div class="platform-stat-row"><div class="platform-stat"><b></b><span></span></div><div class="platform-stat"><b></b><span></span></div><div class="platform-stat"><b></b><span></span></div></div><div class="platform-table"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    </div>
+    <div class="platform-preview-copy"><span class="platform-preview-label">Preview 03</span><h3>Contacts & CRM</h3><p>Organise contact details and keep important lead information together.</p></div>
+   </article>
+  </div>
+  <p class="platform-placeholder-note">These are temporary visual placeholders, not screenshots of the live platform. They can be replaced with your real Zailux screenshots when you're ready.</p>
  </div>
 </section>
 <div id="receptionist-live-demo" style="width:100%;max-width:100%;box-sizing:border-box;">

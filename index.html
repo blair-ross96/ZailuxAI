@@ -3070,6 +3070,40 @@ html { scroll-behavior: smooth; }
     // Close the menu on scroll so it never floats independently of its button.
     window.addEventListener('scroll', closeMenu, { passive: true });
 
+
+  function resolveZailuxCurrency(setCurrencyFn) {
+    var saved = '', manual = '', geo = '';
+    try {
+      saved = localStorage.getItem('zailuxPreferredCurrency') || '';
+      manual = localStorage.getItem('zailuxCurrencyManualChoice') || '';
+      geo = localStorage.getItem('zailuxGeoCurrency') || '';
+      if (saved && !manual && !geo) {
+        localStorage.setItem('zailuxCurrencyManualChoice', '1');
+        manual = '1';
+      }
+    } catch (e) {}
+    if (manual && saved) { setCurrencyFn(saved, false); return; }
+    if (geo) { setCurrencyFn(geo, false); return; }
+    setCurrencyFn('GBP', false);
+    fetch('https://ipapi.co/country/', { method: 'GET', mode: 'cors', credentials: 'omit' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Country lookup unavailable');
+        return response.text();
+      })
+      .then(function (country) {
+        country = country.trim().toUpperCase();
+        var euroCountries = ['AT','BE','CY','DE','EE','ES','FI','FR','GR','HR','IE','IT','LT','LU','LV','MT','NL','PT','SI','SK','AD','MC','SM','VA','ME','XK'];
+        var currency = country === 'GB' ? 'GBP' : country === 'AU' ? 'AUD' : country === 'US' ? 'USD' : euroCountries.indexOf(country) !== -1 ? 'EUR' : 'GBP';
+        try {
+          if (localStorage.getItem('zailuxCurrencyManualChoice') === '1') return;
+          localStorage.setItem('zailuxGeoCurrency', currency);
+          localStorage.setItem('zailuxPreferredCurrency', currency);
+        } catch (e) {}
+        setCurrencyFn(currency, false);
+      })
+      .catch(function () {});
+  }
+
     function setCurrency(curr, persist) {
       var data = rates[curr];
       if (!data) return;
@@ -3100,6 +3134,7 @@ html { scroll-behavior: smooth; }
           else if (option.value === 'complete') option.textContent = data.completeOption;
         });
       });
+      if (persist) { try { localStorage.setItem('zailuxPreferredCurrency', curr); localStorage.setItem('zailuxCurrencyManualChoice', '1'); } catch (e) {} }
       pricingRoot.setAttribute('data-selected-currency', curr);
       pricingRoot.querySelectorAll('.clone-pricing-curr-opt').forEach(function (option) {
         option.setAttribute('aria-pressed', option.getAttribute('data-curr') === curr ? 'true' : 'false');
@@ -3147,9 +3182,7 @@ html { scroll-behavior: smooth; }
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') closeMenu();
     });
-    var initialCurrency = 'GBP';
-    try { initialCurrency = localStorage.getItem('zailuxPreferredCurrency') || 'GBP'; } catch (e) {}
-    setCurrency(initialCurrency, false);
+    resolveZailuxCurrency(setCurrency);
   }
 
   if (document.readyState === 'loading') {

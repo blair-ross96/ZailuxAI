@@ -444,6 +444,40 @@ html{scroll-behavior:smooth}
    function openMenu(){const rect=btn.getBoundingClientRect();document.body.appendChild(menu);menu.style.position='fixed';menu.style.top=(rect.bottom+6)+'px';menu.style.left=rect.left+'px';menu.style.width=rect.width+'px';menu.style.zIndex='2147483647';menu.classList.add('is-open');menu.style.setProperty('display','block','important');menu.style.visibility='visible';menu.style.opacity='1';menu.style.pointerEvents='auto';btn.setAttribute('aria-expanded','true');if(chev)chev.style.transform='rotate(180deg)';}
    function closeMenu(){menu.classList.remove('is-open');menu.style.setProperty('display','none','important');menu.style.visibility='hidden';menu.style.opacity='0';menu.style.pointerEvents='none';menu.style.position='absolute';menu.style.top='calc(100% + 6px)';menu.style.left='0';menu.style.width='100%';menu.style.zIndex='2147483000';if(menu.parentElement!==wrap)wrap.appendChild(menu);btn.setAttribute('aria-expanded','false');if(chev)chev.style.transform='rotate(0deg)';}
    function formatPrice(n,curr){const symbol={USD:'$',AUD:'A$',GBP:'£',EUR:'€'}[curr];return symbol+n;}
+
+  function resolveZailuxCurrency(setCurrencyFn) {
+    var saved = '', manual = '', geo = '';
+    try {
+      saved = localStorage.getItem('zailuxPreferredCurrency') || '';
+      manual = localStorage.getItem('zailuxCurrencyManualChoice') || '';
+      geo = localStorage.getItem('zailuxGeoCurrency') || '';
+      if (saved && !manual && !geo) {
+        localStorage.setItem('zailuxCurrencyManualChoice', '1');
+        manual = '1';
+      }
+    } catch (e) {}
+    if (manual && saved) { setCurrencyFn(saved, false); return; }
+    if (geo) { setCurrencyFn(geo, false); return; }
+    setCurrencyFn('GBP', false);
+    fetch('https://ipapi.co/country/', { method: 'GET', mode: 'cors', credentials: 'omit' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Country lookup unavailable');
+        return response.text();
+      })
+      .then(function (country) {
+        country = country.trim().toUpperCase();
+        var euroCountries = ['AT','BE','CY','DE','EE','ES','FI','FR','GR','HR','IE','IT','LT','LU','LV','MT','NL','PT','SI','SK','AD','MC','SM','VA','ME','XK'];
+        var currency = country === 'GB' ? 'GBP' : country === 'AU' ? 'AUD' : country === 'US' ? 'USD' : euroCountries.indexOf(country) !== -1 ? 'EUR' : 'GBP';
+        try {
+          if (localStorage.getItem('zailuxCurrencyManualChoice') === '1') return;
+          localStorage.setItem('zailuxGeoCurrency', currency);
+          localStorage.setItem('zailuxPreferredCurrency', currency);
+        } catch (e) {}
+        setCurrencyFn(currency, false);
+      })
+      .catch(function () {});
+  }
+
    function setCurrency(curr,persist=true){
      if(!currencyLabels[curr])curr='AUD';
      label.textContent=currencyLabels[curr];
@@ -463,7 +497,7 @@ html{scroll-behavior:smooth}
      });
      menu.querySelectorAll('[data-curr]').forEach(o=>o.setAttribute('aria-pressed',o.dataset.curr===curr?'true':'false'));
      document.documentElement.dataset.zailuxCurrency=curr;
-     if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}
+     if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr);localStorage.setItem('zailuxCurrencyManualChoice','1')}catch(e){}}
    }
    // Close the menu on scroll so it does not float away from its button.
    window.addEventListener('scroll',closeMenu,{passive:true});
@@ -473,8 +507,7 @@ html{scroll-behavior:smooth}
    document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeMenu();});
    document.addEventListener('touchstart',function(e){if(!wrap.contains(e.target))closeMenu();},{passive:true});
    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
-   let curr='GBP';try{curr=localStorage.getItem('zailuxPreferredCurrency')||'GBP'}catch(e){}
-   setCurrency(curr,false);closeMenu();
+   resolveZailuxCurrency(setCurrency);closeMenu();
  }
  // When a visitor clicks an enquiry CTA, carry the service name to the existing homepage contact section.
  document.querySelectorAll('[data-service-link]').forEach(a=>{const service=a.getAttribute('data-service-link');a.href='/?service='+encodeURIComponent(service)+'#section-11'});

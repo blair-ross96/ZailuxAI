@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <title>Page Not Found | Zailux</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="description" content="This page couldn't be found. Head back to Zailux and explore our AI receptionist, AI sales and business automation solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --bg:#050505; --purple:#a259ff; --muted:#a1a1aa; --border:rgba(162,89,255,.28); }
+    * { box-sizing:border-box; }
+    html { min-height:100%; background:var(--bg); scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; background:radial-gradient(ellipse at 50% 12%,rgba(126,34,206,.20),transparent 48%),var(--bg); color:#fff; font-family:Inter,Arial,sans-serif; display:flex; flex-direction:column; overflow-x:hidden; }
+    a { color:inherit; }
+    .topbar { width:100%; padding:24px clamp(20px,5vw,64px); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .logo { color:#fff; text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:25px; line-height:1; font-weight:700; letter-spacing:-.06em; }
+    .logo span { color:var(--purple); }
+    .top-link { color:#d4d4d8; text-decoration:none; font-size:13px; transition:color .2s ease; }
+    .top-link:hover { color:#fff; }
+    main { flex:1; display:grid; place-items:center; padding:52px 20px 86px; }
+    .content { width:min(100%,760px); text-align:center; position:relative; }
+    .orb { position:absolute; z-index:0; left:50%; top:4%; width:min(72vw,540px); aspect-ratio:1; transform:translateX(-50%); border-radius:50%; background:rgba(124,58,237,.15); filter:blur(85px); pointer-events:none; }
+    .content-inner { position:relative; z-index:1; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; border:1px solid var(--border); border-radius:999px; padding:8px 13px; color:#d8b4fe; background:rgba(20,10,32,.72); font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+    .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--purple); box-shadow:0 0 12px var(--purple); }
+    .error-code { margin:22px 0 0; font-family:'Space Grotesk',sans-serif; font-size:clamp(100px,23vw,190px); line-height:.92; letter-spacing:-.095em; font-weight:700; color:transparent; background:linear-gradient(180deg,#fff 10%,#c084fc 55%,#6d28d9 100%); -webkit-background-clip:text; background-clip:text; text-shadow:0 0 55px rgba(162,89,255,.12); }
+    h1 { margin:25px 0 12px; font-family:'Space Grotesk',sans-serif; font-size:clamp(27px,4.5vw,40px); line-height:1.15; letter-spacing:-.045em; }
+    .description { max-width:510px; margin:0 auto; color:var(--muted); font-size:15px; line-height:1.8; }
+    .actions { margin-top:30px; display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
+    .button { min-height:46px; padding:0 20px; display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
+    .button:hover { transform:translateY(-2px); }
+    .primary { background:linear-gradient(120deg,#7c3aed,#a259ff); border:1px solid rgba(216,180,254,.45); color:#fff; box-shadow:0 7px 28px rgba(124,58,237,.18); }
+    .primary:hover { box-shadow:0 9px 32px rgba(124,58,237,.32); }
+    .secondary { border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.035); color:#e4e4e7; }
+    .secondary:hover { border-color:var(--border); }
+    .help { margin-top:34px; color:#71717a; font-size:12px; line-height:1.7; }
+    .help a { color:#c084fc; text-decoration:none; }
+    .help a:hover { text-decoration:underline; }
+    footer { border-top:1px solid rgba(255,255,255,.07); padding:18px 20px; color:#71717a; font-size:11px; text-align:center; }
+    @media (max-width:520px) { .topbar{padding:20px;} main{padding-top:40px;padding-bottom:62px;} .description{font-size:14px;} .button{width:100%;max-width:300px;} .actions{flex-direction:column;align-items:center;} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="logo" aria-label="Zailux home">Z<span>ai</span>lux</a>
+    <a href="/tools-add-ons/" class="top-link">Explore Tools &amp; Add-ons <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="content" aria-labelledby="page-title">
+      <div class="orb" aria-hidden="true"></div>
+      <div class="content-inner">
+        <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Lost in the system</div>
+        <div class="error-code" aria-label="Error 404">404</div>
+        <h1 id="page-title">This page couldn’t be found.</h1>
+        <p class="description">Looks like this link has taken a wrong turn. The page may have moved, the address might be incorrect, or the link may no longer exist.</p>
+        <div class="actions">
+          <a class="button primary" href="/">Back to homepage <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="/#section-11">Discuss your business</a>
+        </div>
+        <p class="help">Still need a hand? <a href="mailto:enquire@zailux.ai">Contact the Zailux team</a>.</p>
+      </div>
+    </section>
+  <footer>© 2026 Zailux AI Services. All rights reserved.</footer>
+</body>
+</html>

@@ -256,9 +256,7 @@
  var button=document.getElementById('currency-button'),menu=document.getElementById('currency-menu'),label=document.getElementById('currency-label');
  var monthly=document.getElementById('receptionist-monthly-price'),setup=document.getElementById('receptionist-setup-price');
  if(!button||!menu||!label||!monthly||!setup)return;
- var rates={AUD:{label:'AUD A
-</html>,monthly:'A$599',setup:'A$399'},EUR:{label:'EUR €',monthly:'€369',setup:'€239'},GBP:{label:'GBP £',monthly:'£309',setup:'£209'},USD:{label:'USD 
-</html>,monthly:'$429',setup:'$279'}};
+ var dollar=String.fromCharCode(36);var rates={AUD:{label:'AUD A'+dollar,monthly:'A'+dollar+'599',setup:'A'+dollar+'399'},EUR:{label:'EUR €',monthly:'€369',setup:'€239'},GBP:{label:'GBP £',monthly:'£309',setup:'£209'},USD:{label:'USD '+dollar,monthly:dollar+'429',setup:dollar+'279'}};
  function close(){menu.classList.remove('open');button.setAttribute('aria-expanded','false')}
  function setCurrency(curr,persist){var r=rates[curr]||rates.AUD;label.textContent=r.label;monthly.textContent=r.monthly;setup.textContent=r.setup;menu.querySelectorAll('[data-currency]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.currency===curr))});if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr)}catch(e){}}}
  button.addEventListener('click',function(e){e.stopPropagation();var open=!menu.classList.contains('open');menu.classList.toggle('open',open);button.setAttribute('aria-expanded',String(open))});

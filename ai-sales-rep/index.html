@@ -171,6 +171,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 .conversation-example-copy p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
 .conversation-image-placeholder{min-height:260px;margin:18px;padding:22px;border:1px dashed rgba(147,197,253,.4);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;background:linear-gradient(145deg,rgba(59,130,246,.07),rgba(255,255,255,.015));color:#bfdbfe}
 .sms-example .conversation-image-placeholder{border-color:rgba(196,181,253,.4);background:linear-gradient(145deg,rgba(162,89,255,.08),rgba(255,255,255,.015));color:#ddd6fe}
+.placeholder-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;background:rgba(59,130,246,.13);border:1px solid rgba(147,197,253,.28);font-size:21px}.sms-example .placeholder-icon{background:rgba(162,89,255,.13);border-color:rgba(196,181,253,.28)}
 .conversation-image-placeholder strong{font-size:13px}
 .conversation-image-placeholder span{max-width:330px;color:#a9a1b5;font-size:11px;line-height:1.7}
 .conversation-image-placeholder code{font-size:10px;color:#d8b4fe;overflow-wrap:anywhere}
@@ -492,12 +493,12 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
    <article class="conversation-example-card">
     <div class="conversation-example-copy"><div class="demo-label">Voice example</div><h3>See how a call unfolds</h3><p>Use a call transcript screenshot, call summary or waveform/player preview from an existing demo.</p></div>
     <!-- Replace the placeholder below with your voice transcript screenshot, e.g. <img src="/images/ai-sales-rep-voice-example.webp" alt="Example AI Sales Rep call transcript"> -->
-    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for a voice conversation screenshot"><icon-placeholder>☎</icon-placeholder><strong>Add your voice conversation screenshot</strong><span>Suggested: a call transcript, call summary, or screenshot showing the AI asking qualification questions.</span><code>/images/ai-sales-rep-voice-example.webp</code></div>
+    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for a voice conversation screenshot"><span class="placeholder-icon" aria-hidden="true">☎</span><strong>Add your voice conversation screenshot</strong><span>Suggested: a call transcript, call summary, or screenshot showing the AI asking qualification questions.</span><code>/images/ai-sales-rep-voice-example.webp</code></div>
    </article>
    <article class="conversation-example-card sms-example">
     <div class="conversation-example-copy"><div class="demo-label">SMS example</div><h3>See the text conversation</h3><p>Show how the AI follows up, asks questions and guides the lead towards the next step.</p></div>
     <!-- Replace the placeholder below with your SMS screenshot, e.g. <img src="/images/ai-sales-rep-sms-example.webp" alt="Example AI Sales Rep SMS conversation"> -->
-    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for an SMS conversation screenshot"><icon-placeholder>✉</icon-placeholder><strong>Add your SMS conversation screenshot</strong><span>Suggested: a mobile message thread with the lead’s replies and the AI’s follow-up messages.</span><code>/images/ai-sales-rep-sms-example.webp</code></div>
+    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for an SMS conversation screenshot"><span class="placeholder-icon" aria-hidden="true">✉</span><strong>Add your SMS conversation screenshot</strong><span>Suggested: a mobile message thread with the lead’s replies and the AI’s follow-up messages.</span><code>/images/ai-sales-rep-sms-example.webp</code></div>
    </article>
   </div>
  </div>

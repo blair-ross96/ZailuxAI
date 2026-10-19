@@ -163,7 +163,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
      <a href="/tools-add-ons/" class="nav-dropdown-item" role="menuitem">Tools &amp; Add-ons</a>
     </div>
    </div>
-   <a href="/#zailux-demo">Live Demo</a><a href="#features">Features</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="/#section-11">Get Started with Zailux</a>
+   <a href="#voice-demo">Live Demo</a><a href="#capabilities">Features</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="/#section-11">Get Started with Zailux</a>
   </div>
  </nav>
 </header>
@@ -564,6 +564,8 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  var status=document.getElementById('demo-call-status');
  var button=document.getElementById('demo-call-submit');
  function showStatus(kind,message){status.className='demo-status visible '+kind;status.textContent=message;}
+ var configuredEndpoint=(window.ZAILUX_CONFIG&&window.ZAILUX_CONFIG.demoCallEndpoint)||document.querySelector('meta[name="zailux-demo-call-endpoint"]')?.content||'';
+ if(configuredEndpoint){status.className='demo-status';status.textContent='';}
  form.addEventListener('submit',async function(e){
   e.preventDefault();
   var first=(document.getElementById('demo-first-name').value||'').trim();
@@ -572,13 +574,15 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
   var raw=(document.getElementById('demo-phone').value||'').trim();
   var consent=document.getElementById('demo-consent').checked;
   var digits=raw.replace(/[^0-9]/g,'');
+  // Remove the usual national trunk prefix before adding the international calling code.
+  while(digits.length>0&&digits.charAt(0)==='0')digits=digits.slice(1);
   if(!first||!last){showStatus('error','Please enter your first and last name.');return;}
   if(!prefix||digits.length<6||digits.length>14){showStatus('error','Please enter a valid phone number and country calling code.');return;}
   if(!consent){showStatus('error','Please confirm that you are requesting an automated test call.');return;}
   var e164=prefix+' '+digits;
   e164='+'+e164.replace(/[^0-9]/g,'');
   // This endpoint must be supplied by a secure backend. Never place voice-provider credentials in browser code.
-  var endpoint=(window.ZAILUX_CONFIG&&window.ZAILUX_CONFIG.demoCallEndpoint)||document.querySelector('meta[name="zailux-demo-call-endpoint"]')?.content||'';
+  var endpoint=configuredEndpoint;
   if(!endpoint){
    showStatus('info','The voice-demo calling integration is not connected yet. No call has been placed. The secure backend endpoint must be configured before this form can trigger the AI agent.');
    return;

@@ -509,7 +509,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  var button=document.getElementById('currency-button'),menu=document.getElementById('currency-menu'),label=document.getElementById('currency-label');
  var monthly=document.getElementById('receptionist-monthly-price'),setup=document.getElementById('receptionist-setup-price'),overage=document.getElementById('receptionist-overage-price');
  var faqOverage=document.getElementById('receptionist-faq-overage-price');
- if(!button||!menu||!label||!monthly||!setup||!overage||!faqOverage)return;
+ if(!button||!menu||!label||!monthly||!setup||!overage)return;
  var dollar=String.fromCharCode(36);var rates={AUD:{label:'AUD A'+dollar,monthly:'A'+dollar+'599',setup:'A'+dollar+'399',overage:'A'+dollar+'0.45'},EUR:{label:'EUR €',monthly:'€369',setup:'€239',overage:'€0.28'},GBP:{label:'GBP £',monthly:'£309',setup:'£209',overage:'£0.23'},USD:{label:'USD '+dollar,monthly:dollar+'429',setup:dollar+'279',overage:dollar+'0.32'}};
  function close(){menu.classList.remove('open');button.setAttribute('aria-expanded','false')}
 
@@ -546,7 +546,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
       .catch(function () {});
   }
 
- function setCurrency(curr,persist){var r=rates[curr]||rates.AUD;label.textContent=r.label;monthly.textContent=r.monthly;setup.textContent=r.setup;overage.textContent=r.overage;faqOverage.textContent=r.overage;menu.querySelectorAll('[data-currency]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.currency===curr))});if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr);localStorage.setItem('zailuxCurrencyManualChoice','1')}catch(e){}}}
+ function setCurrency(curr,persist){var r=rates[curr]||rates.AUD;label.textContent=r.label;monthly.textContent=r.monthly;setup.textContent=r.setup;overage.textContent=r.overage;if(faqOverage)faqOverage.textContent=r.overage;menu.querySelectorAll('[data-currency]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.currency===curr))});if(persist){try{localStorage.setItem('zailuxPreferredCurrency',curr);localStorage.setItem('zailuxCurrencyManualChoice','1')}catch(e){}}}
  button.addEventListener('click',function(e){e.stopPropagation();var open=!menu.classList.contains('open');menu.classList.toggle('open',open);button.setAttribute('aria-expanded',String(open))});
  menu.querySelectorAll('[data-currency]').forEach(function(b){b.addEventListener('click',function(){setCurrency(b.dataset.currency,true);close()})});
  document.addEventListener('click',function(e){if(!menu.contains(e.target)&&!button.contains(e.target))close()});

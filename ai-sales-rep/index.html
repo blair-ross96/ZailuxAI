@@ -178,6 +178,19 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 @media(max-width:850px){.live-demo-grid,.conversation-example-grid{grid-template-columns:1fr}.live-demo-card{padding:22px}.conversation-image-placeholder{min-height:220px}}
 @media(max-width:560px){.live-demo-section,.conversation-examples{padding:52px 0}.live-demo-card .demo-form-grid{grid-template-columns:1fr}.live-demo-card .demo-phone-row{grid-template-columns:115px minmax(0,1fr)}}
 
+
+.handover-preview{padding:25px;border:1px solid rgba(96,165,250,.25);border-radius:20px;background:linear-gradient(145deg,rgba(14,25,43,.82),rgba(9,8,12,.98));box-shadow:0 18px 48px rgba(0,0,0,.25)}
+.handover-top{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:16px}
+.handover-avatar{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:rgba(59,130,246,.18);border:1px solid rgba(96,165,250,.25);color:#bfdbfe;font-weight:700;font-size:12px}
+.handover-top strong{display:block;font-size:13px}.handover-top small{display:block;margin-top:4px;font-size:10px;color:#928ba0}
+.handover-status{margin-left:auto;padding:6px 8px;border:1px solid rgba(96,165,250,.25);border-radius:999px;background:rgba(59,130,246,.1);color:#bfdbfe;font-size:10px}
+.handover-field{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.055)}
+.handover-field span{font-size:11px;color:#928ba0}.handover-field strong{font-size:12px;color:#e5e7eb;font-weight:600;line-height:1.6}
+.handover-notes{margin-top:16px;padding:15px;border:1px solid rgba(162,89,255,.2);border-radius:12px;background:rgba(162,89,255,.06)}
+.handover-notes span{font-size:9px;font-weight:800;letter-spacing:.13em;color:#c4b5fd}.handover-notes p{margin:8px 0 0;font-size:12px;line-height:1.8;color:#d6d0df}
+.handover-disclaimer{font-size:10px;line-height:1.6;color:#8f879c;margin:14px 0 0}
+@media(max-width:720px){.handover-preview{padding:19px}.handover-field{grid-template-columns:1fr;gap:4px}}
+
 </style>
 </head>
 <body>
@@ -512,10 +525,6 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
   <article class="feature sales-feature"><div class="feature-icon sales-icon">✉</div><h3>AI Messaging Agent</h3><p>Use supported messaging channels to respond to enquiries, follow up, qualify prospects and guide conversations towards an appointment.</p></article>
   <article class="feature"><div class="feature-icon">▣</div><h3>One Shared Goal</h3><p>Both channels follow your business information, qualification criteria and next-step rules, with human handover where appropriate and configured.</p></article>
  </div>
- <div class="split" style="margin-top:34px;align-items:stretch">
-  <div class="sales-message"><div class="demo-label" style="color:#60a5fa">Voice follow-up</div><h3>Real conversations. Without the manual follow-up.</h3><p>Use the voice agent to reconnect with eligible leads, collect details, answer approved common questions and identify prospects ready for the next step.</p><ul class="list"><li>New enquiries and suitable warm leads</li><li>Lead qualification and information capture</li><li>Appointment booking where calendar tools are connected</li><li>Human handover when a conversation needs your team</li></ul></div>
-  <div class="sales-message"><div class="demo-label" style="color:#60a5fa">Messaging follow-up</div><h3>Keep the conversation moving beyond calls.</h3><p>Automate suitable conversations through compatible messaging channels, using the same lead-conversion objective as the voice agent.</p><div class="sales-channel-pills"><span>SMS</span><span>WhatsApp</span><span>Facebook Messenger</span><span>Instagram DMs</span><span>Website chat</span></div><p style="margin-top:15px">Channel availability, permissions and setup depend on the integrations selected for your business.</p></div>
- </div>
  <p class="fine-print">Messaging channels and capabilities depend on the configured setup, supported integrations, permissions and any applicable usage charges. *Not every channel is automatically included in every package.</p>
 </div></section>
 
@@ -529,14 +538,36 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  </div>
 </div></section>
 
+<section class="section section-dark" id="sales-handover">
+ <div class="wrap split" style="align-items:center">
+  <div>
+   <span class="kicker">The handover</span>
+   <h2>Your team gets the conversation context, <span class="sales-gradient">not just a booking.</span></h2>
+   <p class="split-copy">When the AI captures qualification answers, it can pass the key details into the configured workflow so your salesperson has a useful starting point before the appointment.</p>
+   <ul class="list">
+    <li>The prospect’s needs and main reason for enquiring</li>
+    <li>Answers to the qualification questions you agreed</li>
+    <li>Relevant details, concerns and preferred next step</li>
+    <li>Appointment information where booking is configured</li>
+   </ul>
+  </div>
+  <div class="handover-preview" aria-label="Illustrative example of sales notes">
+   <div class="handover-top"><span class="handover-avatar">JW</span><div><strong>Jamie Wilson</strong><small>Lead summary · Example only</small></div><span class="handover-status">Qualified</span></div>
+   <div class="handover-field"><span>Interested in</span><strong>Solar and battery installation</strong></div>
+   <div class="handover-field"><span>Timeframe</span><strong>Within the next 3 months</strong></div>
+   <div class="handover-field"><span>Main motivation</span><strong>Reduce household electricity costs</strong></div>
+   <div class="handover-notes"><span>SALES REP NOTES</span><p>Jamie wants to explore solar and battery options to lower energy bills. Discuss household usage, property suitability and the available options during the consultation.</p></div>
+   <p class="handover-disclaimer">Illustrative example. The information shown depends on what the lead shares and what the configured system captures.</p>
+  </div>
+ </div>
+</section>
+
 <section class="section section-dark" id="benefits"><div class="wrap">
  <div class="section-head"><span class="kicker">Why Zailux</span><h2>More conversations. <span class="sales-gradient">More opportunities.</span> Less manual work.</h2><p>Give your team a consistent way to follow up, qualify leads and progress sales opportunities.</p></div>
  <div class="grid-3">
   <article class="feature"><div class="feature-icon sales-icon">↗</div><h3>Faster follow-up</h3><p>Help engage prospects while their interest is fresh instead of relying entirely on manual outreach.</p></article>
   <article class="feature"><div class="feature-icon sales-icon">✓</div><h3>Consistent qualification</h3><p>Ask relevant questions and collect useful information before the human sales conversation.</p></article>
-  <article class="feature"><div class="feature-icon sales-icon">◎</div><h3>Voice and messaging</h3><p>Use supported channels to suit your business's communication strategy and lead workflow.</p></article>
   <article class="feature"><div class="feature-icon">◷</div><h3>Follow-up beyond office hours</h3><p>Configured workflows can engage eligible prospects outside normal hours, subject to permissions and scheduling rules.</p></article>
-  <article class="feature"><div class="feature-icon">▤</div><h3>Clearer next steps</h3><p>Help move suitable leads towards an appointment, or pass the conversation context to your team.</p></article>
   <article class="feature"><div class="feature-icon">↗</div><h3>More time for your team</h3><p>Reduce repetitive follow-up so staff can focus on relationships, qualified conversations and closing deals.</p></article>
  </div>
 </div></section>

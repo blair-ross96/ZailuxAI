@@ -144,6 +144,39 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 .sales-channel-pills span{padding:7px 10px;border:1px solid rgba(96,165,250,.2);border-radius:999px;background:rgba(59,130,246,.07);color:#bfdbfe;font-size:11px}
 @media(max-width:720px){.sales-flow{grid-template-columns:1fr}.demo-form{padding:22px 17px}.demo-form-grid{grid-template-columns:1fr}.demo-phone-row{grid-template-columns:125px 1fr}}
 @media(prefers-reduced-motion:reduce){.sales-primary,.sales-feature{transition:none!important}}
+
+/* Early dual-channel live demo and real-conversation screenshot slots */
+.live-demo-section{padding:68px 0;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.10),transparent 62%),#07060a;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.live-demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.live-demo-card{min-width:0;padding:25px;border:1px solid rgba(96,165,250,.3);border-radius:20px;background:linear-gradient(145deg,rgba(14,25,43,.84),rgba(9,8,12,.98));box-shadow:0 16px 45px rgba(0,0,0,.25)}
+.live-demo-card.sms-card{border-color:rgba(162,89,255,.35);background:linear-gradient(145deg,rgba(27,14,42,.84),rgba(9,8,12,.98))}
+.live-demo-card-head{display:flex;gap:13px;align-items:center;margin-bottom:18px}
+.live-demo-card-head .feature-icon{flex:0 0 44px}
+.live-demo-card-head h3{font-size:20px;margin:0 0 5px}
+.live-demo-card-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.live-demo-card .demo-form{max-width:none;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.live-demo-card .demo-form-grid{grid-template-columns:1fr 1fr}
+.live-demo-card .demo-phone-row{grid-template-columns:122px minmax(0,1fr)}
+.live-demo-card .demo-consent{font-size:10px;margin:14px 0}
+.live-demo-card .demo-submit{min-height:46px}
+.demo-section-note{max-width:760px;margin:18px auto 0;text-align:center;color:#8f879c;font-size:11px;line-height:1.7}
+.conversation-examples{padding:72px 0;background:#050505}
+.conversation-example-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.conversation-example-card{overflow:hidden;border:1px solid rgba(96,165,250,.22);border-radius:18px;background:linear-gradient(145deg,rgba(14,25,43,.62),rgba(9,8,12,.96))}
+.conversation-example-card.sms-example{border-color:rgba(162,89,255,.24);background:linear-gradient(145deg,rgba(27,14,42,.62),rgba(9,8,12,.96))}
+.conversation-example-copy{padding:20px 22px 0}
+.conversation-example-copy .demo-label{color:#93c5fd}
+.sms-example .conversation-example-copy .demo-label{color:#c4b5fd}
+.conversation-example-copy h3{font-size:18px;margin:0 0 7px}
+.conversation-example-copy p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+.conversation-image-placeholder{min-height:260px;margin:18px;padding:22px;border:1px dashed rgba(147,197,253,.4);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;background:linear-gradient(145deg,rgba(59,130,246,.07),rgba(255,255,255,.015));color:#bfdbfe}
+.sms-example .conversation-image-placeholder{border-color:rgba(196,181,253,.4);background:linear-gradient(145deg,rgba(162,89,255,.08),rgba(255,255,255,.015));color:#ddd6fe}
+.conversation-image-placeholder strong{font-size:13px}
+.conversation-image-placeholder span{max-width:330px;color:#a9a1b5;font-size:11px;line-height:1.7}
+.conversation-image-placeholder code{font-size:10px;color:#d8b4fe;overflow-wrap:anywhere}
+@media(max-width:850px){.live-demo-grid,.conversation-example-grid{grid-template-columns:1fr}.live-demo-card{padding:22px}.conversation-image-placeholder{min-height:220px}}
+@media(max-width:560px){.live-demo-section,.conversation-examples{padding:52px 0}.live-demo-card .demo-form-grid{grid-template-columns:1fr}.live-demo-card .demo-phone-row{grid-template-columns:115px minmax(0,1fr)}}
+
 </style>
 </head>
 <body>
@@ -163,7 +196,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
      <a href="/tools-add-ons/" class="nav-dropdown-item" role="menuitem">Tools &amp; Add-ons</a>
     </div>
    </div>
-   <a href="#voice-demo">Live Demo</a><a href="#capabilities">Features</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="/#section-11">Get Started with Zailux</a>
+   <a href="#live-demo">Live Demo</a><a href="#capabilities">Features</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="/#section-11">Get Started with Zailux</a>
   </div>
  </nav>
 </header>
@@ -393,7 +426,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
    <span class="eyebrow sales-eyebrow"><span class="dot"></span> Outbound AI · AI Sales Rep</span>
    <h1>Turn More Leads Into <span class="sales-gradient">Booked Appointments.</span> Automatically.</h1>
    <p class="hero-copy">Meet your AI Sales Rep: a lead follow-up assistant that contacts prospects through voice calls and supported messaging, qualifies their needs and helps book appointments with your team.</p>
-   <div class="hero-actions"><a class="btn btn-primary sales-primary" href="#voice-demo">Try the AI Sales Rep <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#pricing">Explore the Pricing</a></div>
+   <div class="hero-actions"><a class="btn btn-primary sales-primary" href="#live-demo">Try the AI Sales Rep <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#pricing">Explore the Pricing</a></div>
    <p class="hero-note">One goal across every channel: contact leads, qualify prospects and move suitable opportunities towards an appointment.</p>
   </div>
   <div class="hero-art" aria-label="Illustration of an AI Sales Rep following up with leads">
@@ -408,12 +441,68 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  </div>
 </section>
 
+
 <section class="trust-strip"><div class="wrap trust-inner"><span>Follow up leads</span><span>Qualify prospects</span><span>Book appointments</span><span>Voice and messaging</span></div></section>
 
-<section class="section" id="overview"><div class="wrap split">
- <div><span class="kicker">Meet your AI Sales Rep</span><h2>Your AI Sales Rep, <span class="sales-gradient">working around the clock.</span></h2><p class="split-copy">Following up with every lead takes time. Slow responses, missed opportunities and inconsistent follow-ups can cost your business valuable appointments and sales.</p><p class="split-copy">Zailux helps automate that process. Your AI Sales Rep contacts suitable leads, continues conversations, asks qualifying questions, answers approved common enquiries and helps move prospects towards an appointment with your team.</p><p class="split-copy">Whether it speaks to a lead by phone or messages them through a supported channel, the objective stays the same: qualify the opportunity and help arrange the next step.</p></div>
- <div class="demo-box" style="border-color:rgba(96,165,250,.22)"><div class="demo-label" style="color:#60a5fa">One service · Multiple channels</div><h3 style="font-size:24px;margin:0 0 20px">From first contact to booked appointment.</h3><ul class="list"><li>Reach new enquiries and suitable existing warm leads</li><li>Ask relevant questions and collect useful details</li><li>Respond using approved business information</li><li>Help schedule an appointment when booking integrations are configured</li><li>Pass suitable prospects and context to your human team</li></ul></div>
-</div></section>
+<section class="live-demo-section" id="live-demo">
+ <div class="wrap">
+  <div class="section-head">
+   <span class="kicker">Try it for yourself</span>
+   <h2>Choose how you'd like to <span class="sales-gradient">meet your AI Sales Rep.</span></h2>
+   <p>Request a sample AI phone call or start a sample SMS conversation. Choose either option below to experience the kind of lead follow-up Zailux can provide.</p>
+  </div>
+  <div class="live-demo-grid">
+   <article class="live-demo-card">
+    <div class="live-demo-card-head"><div class="feature-icon sales-icon" aria-hidden="true">☎</div><div><h3>Try the AI Voice Agent</h3><p>Enter your details and request a demo call.</p></div></div>
+    <form class="demo-form" id="zailux-demo-call-form" novalidate>
+     <div class="demo-form-grid">
+      <div class="demo-field"><label for="demo-first-name">First name *</label><input id="demo-first-name" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name"></div>
+      <div class="demo-field"><label for="demo-last-name">Last name *</label><input id="demo-last-name" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name"></div>
+      <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><div class="demo-phone-row"><select id="demo-country-code" name="country_code" aria-label="Country calling code" required><option value="+44" selected>UK (+44)</option><option value="+61">Australia (+61)</option><option value="+1">US / Canada (+1)</option><option value="+353">Ireland (+353)</option><option value="+64">New Zealand (+64)</option><option value="+49">Germany (+49)</option><option value="+33">France (+33)</option><option value="+34">Spain (+34)</option><option value="+31">Netherlands (+31)</option><option value="+39">Italy (+39)</option><option value="+27">South Africa (+27)</option><option value="+971">UAE (+971)</option></select><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required maxlength="24" placeholder="Phone number"></div></div>
+     </div>
+     <label class="demo-consent" for="demo-consent"><input id="demo-consent" name="consent" type="checkbox" required><span>I request one automated test call to the number provided. My details will be used to handle this request in accordance with the <a href="/#section-C3FYzlynDf" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
+     <button class="btn btn-primary sales-primary demo-submit" type="submit" id="demo-call-submit">Request a Demo Call <span aria-hidden="true">↗</span></button>
+     <div class="demo-status info visible" id="demo-call-status" role="status" aria-live="polite">The voice-demo calling integration is not connected yet. This form will not initiate a call until the secure backend integration is configured.</div>
+     <p class="demo-smallprint">One test call request only. This does not enrol you in marketing messages.</p>
+    </form>
+   </article>
+   <article class="live-demo-card sms-card">
+    <div class="live-demo-card-head"><div class="feature-icon" aria-hidden="true">✉</div><div><h3>Try the AI SMS Agent</h3><p>Request a sample text conversation on your phone.</p></div></div>
+    <form class="demo-form" id="zailux-demo-sms-form" novalidate>
+     <div class="demo-form-grid">
+      <div class="demo-field"><label for="sms-first-name">First name *</label><input id="sms-first-name" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name"></div>
+      <div class="demo-field"><label for="sms-last-name">Last name *</label><input id="sms-last-name" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name"></div>
+      <div class="demo-field" style="grid-column:1/-1"><label for="sms-phone">Mobile number *</label><div class="demo-phone-row"><select id="sms-country-code" name="country_code" aria-label="Country calling code" required><option value="+44" selected>UK (+44)</option><option value="+61">Australia (+61)</option><option value="+1">US / Canada (+1)</option><option value="+353">Ireland (+353)</option><option value="+64">New Zealand (+64)</option><option value="+49">Germany (+49)</option><option value="+33">France (+33)</option><option value="+34">Spain (+34)</option><option value="+31">Netherlands (+31)</option><option value="+39">Italy (+39)</option><option value="+27">South Africa (+27)</option><option value="+971">UAE (+971)</option></select><input id="sms-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required maxlength="24" placeholder="Mobile number"></div></div>
+     </div>
+     <label class="demo-consent" for="sms-consent"><input id="sms-consent" name="consent" type="checkbox" required><span>I agree to receive one automated SMS demo conversation at the number provided. My details will be used to handle this request in accordance with the <a href="/#section-C3FYzlynDf" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
+     <button class="btn btn-primary demo-submit" type="submit" id="demo-sms-submit">Start SMS Demo <span aria-hidden="true">↗</span></button>
+     <div class="demo-status info visible" id="demo-sms-status" role="status" aria-live="polite">The SMS-demo integration is not connected yet. No text message will be sent until the secure backend integration is configured.</div>
+     <p class="demo-smallprint">One demo conversation request only. This does not enrol you in ongoing marketing messages.</p>
+    </form>
+   </article>
+  </div>
+  <p class="demo-section-note">Demo availability depends on the relevant secure integration being connected. We’ll never show a successful request unless the service confirms it was accepted.</p>
+ </div>
+</section>
+
+<section class="conversation-examples" id="conversation-examples">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">See the conversations</span><h2>Real examples. <span class="sales-gradient">Clear next steps.</span></h2><p>These spaces are ready for your existing conversation screenshots, so visitors can see how the AI sounds and how a real SMS exchange flows.</p></div>
+  <div class="conversation-example-grid">
+   <article class="conversation-example-card">
+    <div class="conversation-example-copy"><div class="demo-label">Voice example</div><h3>See how a call unfolds</h3><p>Use a call transcript screenshot, call summary or waveform/player preview from an existing demo.</p></div>
+    <!-- Replace the placeholder below with your voice transcript screenshot, e.g. <img src="/images/ai-sales-rep-voice-example.webp" alt="Example AI Sales Rep call transcript"> -->
+    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for a voice conversation screenshot"><icon-placeholder>☎</icon-placeholder><strong>Add your voice conversation screenshot</strong><span>Suggested: a call transcript, call summary, or screenshot showing the AI asking qualification questions.</span><code>/images/ai-sales-rep-voice-example.webp</code></div>
+   </article>
+   <article class="conversation-example-card sms-example">
+    <div class="conversation-example-copy"><div class="demo-label">SMS example</div><h3>See the text conversation</h3><p>Show how the AI follows up, asks questions and guides the lead towards the next step.</p></div>
+    <!-- Replace the placeholder below with your SMS screenshot, e.g. <img src="/images/ai-sales-rep-sms-example.webp" alt="Example AI Sales Rep SMS conversation"> -->
+    <div class="conversation-image-placeholder" role="img" aria-label="Placeholder for an SMS conversation screenshot"><icon-placeholder>✉</icon-placeholder><strong>Add your SMS conversation screenshot</strong><span>Suggested: a mobile message thread with the lead’s replies and the AI’s follow-up messages.</span><code>/images/ai-sales-rep-sms-example.webp</code></div>
+   </article>
+  </div>
+ </div>
+</section>
+
 
 <section class="section section-dark" id="capabilities"><div class="wrap">
  <div class="section-head"><span class="kicker">One objective, two communication channels</span><h2>Meet leads where they are. <span class="sales-gradient">Move them forward.</span></h2><p>Voice and messaging work towards the same outcome: contact the lead, understand their needs, qualify the opportunity and help book an appointment.</p></div>
@@ -451,21 +540,6 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  </div>
 </div></section>
 
-<section class="section" id="voice-demo"><div class="wrap">
- <div class="section-head"><span class="kicker">Try the voice agent</span><h2>Hear your AI Sales Rep <span class="sales-gradient">in action.</span></h2><p>Request a test call to experience a sample conversation with the Zailux AI Sales Rep. The call feature will only activate when the secure voice-demo integration is configured.</p></div>
- <form class="demo-form" id="zailux-demo-call-form" novalidate>
-  <div class="demo-form-grid">
-   <div class="demo-field"><label for="demo-first-name">First name *</label><input id="demo-first-name" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name"></div>
-   <div class="demo-field"><label for="demo-last-name">Last name *</label><input id="demo-last-name" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name"></div>
-   <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><div class="demo-phone-row"><select id="demo-country-code" name="country_code" aria-label="Country calling code" required><option value="+44" selected>UK (+44)</option><option value="+61">Australia (+61)</option><option value="+1">United States / Canada (+1)</option><option value="+353">Ireland (+353)</option><option value="+64">New Zealand (+64)</option><option value="+49">Germany (+49)</option><option value="+33">France (+33)</option><option value="+34">Spain (+34)</option><option value="+31">Netherlands (+31)</option><option value="+39">Italy (+39)</option><option value="+27">South Africa (+27)</option><option value="+971">UAE (+971)</option></select><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required maxlength="24" placeholder="Phone number"></div></div>
-  </div>
-  <label class="demo-consent" for="demo-consent"><input id="demo-consent" name="consent" type="checkbox" required><span>I request a test call from the Zailux AI Sales Rep to the number provided and understand the call will be automated. My details will be used to handle this request in accordance with the <a href="/#section-C3FYzlynDf" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
-  <button class="btn btn-primary sales-primary demo-submit" type="submit" id="demo-call-submit">Call Me <span aria-hidden="true">↗</span></button>
-  <div class="demo-status info visible" id="demo-call-status" role="status" aria-live="polite">The voice-demo calling integration is not connected yet. This form will not initiate a call until the secure backend integration is configured.</div>
-  <p class="demo-smallprint">Submitting this form requests one test call only. It does not enrol you in marketing messages.</p>
- </form>
-</div></section>
-
 <section class="section section-dark" id="pricing"><div class="wrap">
  <div class="section-head"><span class="kicker">Try before you commit</span><h2>Start with a <span class="gradient">7-day free trial.</span></h2><p>Explore the AI Sales Rep and see how it fits your lead follow-up process. Your pricing and currency options are consistent with the other Zailux service pages.</p></div>
  <div class="pricing-panel">
@@ -492,7 +566,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  </div>
 </div></section>
 
-<section class="final-cta"><div class="wrap"><div class="cta-panel"><span class="kicker">Make more of every lead</span><h2>Stop letting good leads <span class="sales-gradient">go cold.</span></h2><p>Give your business another way to connect with prospects, qualify opportunities and turn more enquiries into appointments. Let Zailux help keep your sales conversations moving.</p><div class="hero-actions"><a class="btn btn-primary sales-primary" href="/#section-11">Get Started with Zailux <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#voice-demo">Try the AI Sales Rep</a></div></div></div></section>
+<section class="final-cta"><div class="wrap"><div class="cta-panel"><span class="kicker">Make more of every lead</span><h2>Stop letting good leads <span class="sales-gradient">go cold.</span></h2><p>Give your business another way to connect with prospects, qualify opportunities and turn more enquiries into appointments. Let Zailux help keep your sales conversations moving.</p><div class="hero-actions"><a class="btn btn-primary sales-primary" href="/#section-11">Get Started with Zailux <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#live-demo">Try the AI Sales Rep</a></div></div></div></section>
 </main>
 
 <footer class="footer">
@@ -559,53 +633,77 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 
 <script>
 (function(){
- var form=document.getElementById('zailux-demo-call-form');
- if(!form)return;
- var status=document.getElementById('demo-call-status');
- var button=document.getElementById('demo-call-submit');
- function showStatus(kind,message){status.className='demo-status visible '+kind;status.textContent=message;}
- var configuredEndpoint=(window.ZAILUX_CONFIG&&window.ZAILUX_CONFIG.demoCallEndpoint)||document.querySelector('meta[name="zailux-demo-call-endpoint"]')?.content||'';
- if(configuredEndpoint){status.className='demo-status';status.textContent='';}
- form.addEventListener('submit',async function(e){
-  e.preventDefault();
-  var first=(document.getElementById('demo-first-name').value||'').trim();
-  var last=(document.getElementById('demo-last-name').value||'').trim();
-  var prefix=document.getElementById('demo-country-code').value;
-  var raw=(document.getElementById('demo-phone').value||'').trim();
-  var consent=document.getElementById('demo-consent').checked;
-  var digits=raw.replace(/[^0-9]/g,'');
-  // Remove the usual national trunk prefix before adding the international calling code.
+ function digitsOnly(value){return (value||'').replace(/[^0-9]/g,'');}
+ function normalizePhone(prefix,raw){
+  var digits=digitsOnly(raw);
   while(digits.length>0&&digits.charAt(0)==='0')digits=digits.slice(1);
-  if(!first||!last){showStatus('error','Please enter your first and last name.');return;}
-  if(!prefix||digits.length<6||digits.length>14){showStatus('error','Please enter a valid phone number and country calling code.');return;}
-  if(!consent){showStatus('error','Please confirm that you are requesting an automated test call.');return;}
-  var e164=prefix+' '+digits;
-  e164='+'+e164.replace(/[^0-9]/g,'');
-  // This endpoint must be supplied by a secure backend. Never place voice-provider credentials in browser code.
-  var endpoint=configuredEndpoint;
-  if(!endpoint){
-   showStatus('info','The voice-demo calling integration is not connected yet. No call has been placed. The secure backend endpoint must be configured before this form can trigger the AI agent.');
-   return;
-  }
-  button.disabled=true;
-  var old=button.innerHTML;
-  button.textContent='Requesting Call…';
-  showStatus('info','Submitting your test-call request…');
-  try{
-   var response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify({first_name:first,last_name:last,phone_number_e164:e164,consent:true,request_type:'ai_sales_rep_test_call'})});
-   var result={};try{result=await response.json()}catch(_){}
-   if(!response.ok||result.accepted!==true){
-    showStatus('error',result.message||'We could not request your test call. No successful call request was confirmed. Please try again later.');
-   }else{
-    showStatus('success','Your test call has been requested. Keep your phone nearby. This confirms the request was accepted, not that the call has connected or completed.');
-    form.reset();
+  if(!prefix||digits.length<6||digits.length>14)return '';
+  return '+'+(prefix+digits).replace(/[^0-9]/g,'');
+ }
+ function setupDemoForm(config){
+  var form=document.getElementById(config.formId);
+  if(!form)return;
+  var status=document.getElementById(config.statusId);
+  var button=document.getElementById(config.buttonId);
+  var endpoint=(window.ZAILUX_CONFIG&&window.ZAILUX_CONFIG[config.endpointKey])||document.querySelector('meta[name="'+config.metaName+'"]')?.content||'';
+  function showStatus(kind,message){status.className='demo-status visible '+kind;status.textContent=message;}
+  if(endpoint){status.className='demo-status';status.textContent='';}
+  form.addEventListener('submit',async function(e){
+   e.preventDefault();
+   var first=(document.getElementById(config.firstId).value||'').trim();
+   var last=(document.getElementById(config.lastId).value||'').trim();
+   var prefix=document.getElementById(config.countryId).value;
+   var raw=(document.getElementById(config.phoneId).value||'').trim();
+   var consent=document.getElementById(config.consentId).checked;
+   var phone=normalizePhone(prefix,raw);
+   if(!first||!last){showStatus('error','Please enter your first and last name.');return;}
+   if(!phone){showStatus('error','Please enter a valid phone number and country calling code.');return;}
+   if(!consent){showStatus('error',config.consentError);return;}
+   if(!endpoint){
+    showStatus('info',config.notConfigured);
+    return;
    }
-  }catch(err){
-   showStatus('error','We could not reach the call-request service. No successful call request was confirmed. Please try again later.');
-  }finally{
-   button.disabled=false;
-   button.innerHTML=old;
-  }
+   button.disabled=true;
+   var old=button.innerHTML;
+   button.textContent=config.loadingText;
+   showStatus('info',config.submittingText);
+   try{
+    var payload={first_name:first,last_name:last,phone_number_e164:phone,consent:true,request_type:config.requestType};
+    var response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
+    var result={};try{result=await response.json()}catch(_){}
+    if(!response.ok||result.accepted!==true){
+     showStatus('error',result.message||config.failureText);
+    }else{
+     showStatus('success',config.successText);
+     form.reset();
+    }
+   }catch(err){
+    showStatus('error',config.failureText);
+   }finally{
+    button.disabled=false;
+    button.innerHTML=old;
+   }
+  });
+ }
+ setupDemoForm({
+  formId:'zailux-demo-call-form',statusId:'demo-call-status',buttonId:'demo-call-submit',
+  endpointKey:'demoCallEndpoint',metaName:'zailux-demo-call-endpoint',
+  firstId:'demo-first-name',lastId:'demo-last-name',countryId:'demo-country-code',phoneId:'demo-phone',consentId:'demo-consent',
+  requestType:'ai_sales_rep_test_call',loadingText:'Requesting Call…',submittingText:'Submitting your test-call request…',
+  consentError:'Please confirm that you are requesting an automated test call.',
+  notConfigured:'The voice-demo calling integration is not connected yet. No call has been placed. The secure backend endpoint must be configured before this form can trigger the AI agent.',
+  failureText:'We could not request your test call. No successful call request was confirmed. Please try again later.',
+  successText:'Your test call has been requested. Keep your phone nearby. This confirms the request was accepted, not that the call has connected or completed.'
+ });
+ setupDemoForm({
+  formId:'zailux-demo-sms-form',statusId:'demo-sms-status',buttonId:'demo-sms-submit',
+  endpointKey:'smsDemoEndpoint',metaName:'zailux-demo-sms-endpoint',
+  firstId:'sms-first-name',lastId:'sms-last-name',countryId:'sms-country-code',phoneId:'sms-phone',consentId:'sms-consent',
+  requestType:'ai_sales_rep_sms_test',loadingText:'Starting SMS Demo…',submittingText:'Submitting your SMS demo request…',
+  consentError:'Please confirm that you agree to receive one automated SMS demo conversation.',
+  notConfigured:'The SMS-demo integration is not connected yet. No text message has been sent. The secure backend endpoint must be configured before this form can start a conversation.',
+  failureText:'We could not start the SMS demo. No successful message request was confirmed. Please try again later.',
+  successText:'Your SMS demo request has been accepted. Check your phone for the first message. This confirms the request was accepted, not that the conversation has completed.'
  });
 })();
 </script>

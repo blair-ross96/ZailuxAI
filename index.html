@@ -73,17 +73,33 @@ html{scroll-behavior:smooth}
 @keyframes clone-nav-rotate{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
 
 @media (max-width:768px){
-  .clone-nav .nav-container{padding:16px 20px}
-  .clone-nav .nav-links{display:none}
+  .clone-nav .nav-container{padding:16px 20px;position:relative;gap:16px}
+  .clone-nav .nav-links{display:none;position:absolute;top:100%;left:12px;right:12px;z-index:300;flex-direction:column;align-items:stretch;gap:0;padding:10px;background:rgba(9,3,17,.98);border:1px solid rgba(162,89,255,.28);border-radius:14px;box-shadow:0 16px 36px rgba(0,0,0,.45)}
+  .clone-nav .nav-links.open{display:flex}
+  .clone-nav .nav-links>.nav-link{display:block;padding:13px 12px;font-size:14px;border-radius:9px}
+  .clone-nav .nav-links>.nav-link:hover{background:rgba(162,89,255,.13)}
+  .clone-nav .nav-dropdown{display:block;width:100%}
+  .clone-nav .nav-dropdown-toggle{padding:13px 12px;width:100%;justify-content:space-between;font-size:14px}
+  .clone-nav .nav-dropdown-menu{position:static;min-width:0;margin:0 6px 8px;box-shadow:none;background:rgba(0,0,0,.25)}
+  .clone-nav .nav-dropdown-menu:before{display:none}
   .clone-nav .nav-logo{font-size:1.25rem}
-  .clone-nav .border-beam-btn{padding:8px 16px;font-size:0.8125rem}
+  .clone-nav .nav-toggle{display:inline-flex}
+  .clone-nav .border-beam-btn{display:none}
+  .clone-nav .nav-mobile-cta{display:block!important;color:#fff!important;background:rgba(162,89,255,.14);border:1px solid rgba(162,89,255,.35);margin-top:6px}
 }
+.clone-nav .nav-toggle{display:none;appearance:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:44px;height:42px;padding:10px;background:rgba(162,89,255,.08);border:1px solid rgba(162,89,255,.35);border-radius:10px;cursor:pointer;flex:0 0 auto}
+.clone-nav .nav-toggle span{display:block;width:20px;height:2px;border-radius:2px;background:#fff;transition:transform .2s ease,opacity .2s ease}
+.clone-nav .nav-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.clone-nav .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.clone-nav .nav-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.clone-nav .nav-mobile-cta{display:none}
 </style>
 
 <nav class="nav-container" aria-label="Primary">
   <a href="/" class="nav-logo" aria-label="Zailux home">Z<span>ai</span>lux</a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="zailux-primary-links"><span></span><span></span><span></span></button>
 
-  <div class="nav-links">
+  <div class="nav-links" id="zailux-primary-links">
     <div class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="nav-dropdown-menu" role="menu">
@@ -100,6 +116,7 @@ html{scroll-behavior:smooth}
     <a href="#section-6" class="nav-link" data-scroll="section-6">Benefits</a>
     <a href="#section-8" class="nav-link" data-scroll="section-8">Pricing</a>
     <a href="#section-10" class="nav-link" data-scroll="section-10">FAQ</a>
+    <a href="#section-11" class="nav-link nav-mobile-cta" data-scroll="section-11">Find Your AI Solution</a>
   </div>
 
   <a href="#section-11" class="border-beam-btn" data-scroll="section-11">Find Your AI Solution</a>
@@ -137,6 +154,12 @@ html{scroll-behavior:smooth}
   }
 
   function wire(){
+    var menuToggle = document.querySelector(".clone-nav .nav-toggle");
+    var menuLinks = document.querySelector(".clone-nav .nav-links");
+    if(menuToggle && menuLinks){
+      menuToggle.addEventListener("click", function(e){e.preventDefault();var open=menuLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",open?"true":"false");menuToggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");});
+      menuLinks.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){menuLinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","Open navigation menu");});});
+    }
     // Smooth scroll for any link with data-scroll
     var links = document.querySelectorAll('.clone-nav [data-scroll]');
     links.forEach(function(a){

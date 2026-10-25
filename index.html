@@ -4055,18 +4055,29 @@ function toggleFaq(element) {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 48px 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 48px 24px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     background: #090311;
+    color: #ffffff;
+    text-align: left;
+  }
+  .clone-footer-inner {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .clone-footer-top {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.25fr) repeat(4, minmax(0, 1fr));
+    gap: 30px;
+    padding-bottom: 34px;
+  }
+  .clone-footer-brand {
+    max-width: 230px;
   }
   .clone-footer-logo {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 32px;
     color: #ffffff;
@@ -4074,62 +4085,139 @@ function toggleFaq(element) {
     letter-spacing: -0.02em;
     user-select: none;
   }
-  .clone-footer-logo span {
-    color: #a259ff;
+  .clone-footer-logo span { color: #a259ff; }
+  .clone-footer-tagline {
+    margin: 0;
+    color: #9ca3af;
+    font: 13px/1.7 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .clone-footer-column h3 {
+    margin: 3px 0 15px;
+    color: #ffffff;
+    font: 600 13px/1.4 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.01em;
   }
   .clone-footer-links {
-    margin: 10px 0 14px 0;
     display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
   }
   .clone-footer-link {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
+    font: 13px/1.5 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #9ca3af;
     text-decoration: none;
-    transition: color 0.15s, text-decoration-color 0.15s;
+    transition: color 0.15s ease;
   }
-  .clone-footer-link:hover {
+  .clone-footer-link:hover,
+  .clone-footer-link:focus-visible {
     color: #ffffff;
     text-decoration: underline;
-    text-decoration-color: rgba(255,255,255,0.65);
+    text-decoration-color: #a259ff;
+    text-underline-offset: 3px;
   }
+  .clone-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .clone-footer-legal {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .clone-footer-legal .clone-footer-link { font-size: 12px; }
   .clone-footer-copy {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 20px;
+    font: 12px/1.5 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #9ca3af;
     margin: 0;
   }
-  @media (max-width: 768px) {
-    .clone-footer {
-      padding: 36px 16px;
+  @media (max-width: 1000px) {
+    .clone-footer-top {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
     }
-    .clone-footer-logo {
-      font-size: 22px;
-      margin-bottom: 10px;
+    .clone-footer-brand { grid-column: 1 / -1; max-width: 420px; }
+  }
+  @media (max-width: 640px) {
+    .clone-footer { padding: 36px 20px 22px; }
+    .clone-footer-top {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 18px;
+      padding-bottom: 28px;
     }
-    .clone-footer-link {
-      font-size: 12.5px;
-    }
-    .clone-footer-copy {
-      font-size: 13px;
-    }
+    .clone-footer-brand { grid-column: 1 / -1; }
+    .clone-footer-column h3 { margin-bottom: 12px; }
+    .clone-footer-links { gap: 10px; }
+    .clone-footer-link { font-size: 12.5px; }
+    .clone-footer-bottom { align-items: flex-start; flex-direction: column; gap: 14px; }
   }
 </style>
 
 <footer class="clone-footer">
-  <div class="clone-footer-logo">Z<span>ai</span>lux</div>
-  <div class="clone-footer-links">
-    <a class="clone-footer-link" href="#section-euctJ7uybg">Terms &amp; Conditions</a>
-    <a class="clone-footer-link" href="#section-C3FYzlynDf">Privacy Policy</a>
-    <a class="clone-footer-link" href="#section-6cQ8s4uivO">SMS / Messaging Terms</a>
+  <div class="clone-footer-inner">
+    <div class="clone-footer-top">
+      <div class="clone-footer-brand">
+        <div class="clone-footer-logo">Z<span>ai</span>lux</div>
+        <p class="clone-footer-tagline">AI-powered conversations and tools to help businesses capture more opportunities and grow.</p>
+      </div>
+
+      <nav class="clone-footer-column" aria-label="AI Services">
+        <h3>AI Services</h3>
+        <div class="clone-footer-links">
+          <a class="clone-footer-link" href="/ai-receptionist/">AI Receptionist</a>
+          <a class="clone-footer-link" href="/ai-sales-rep/">AI Sales Rep</a>
+          <a class="clone-footer-link" href="/ai-receptionist/">AI Voice Agents</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">AI Messaging Agents</a>
+        </div>
+      </nav>
+
+      <nav class="clone-footer-column" aria-label="Marketing Tools">
+        <h3>Marketing Tools</h3>
+        <div class="clone-footer-links">
+          <a class="clone-footer-link" href="/tools-add-ons/">Prospecting Tools</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">SEO Tools</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Listings Management</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Reputation Management</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Website Design</a>
+        </div>
+      </nav>
+
+      <nav class="clone-footer-column" aria-label="Business Tools and Add-ons">
+        <h3>Business Tools &amp; Add-ons</h3>
+        <div class="clone-footer-links">
+          <a class="clone-footer-link" href="/tools-add-ons/">AI Employee Tools</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Missed-Call Text Back</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Website Chatbots</a>
+          <a class="clone-footer-link" href="/tools-add-ons/">Explore All Tools &amp; Add-ons</a>
+        </div>
+      </nav>
+
+      <nav class="clone-footer-column" aria-label="Explore Zailux">
+        <h3>Explore Zailux</h3>
+        <div class="clone-footer-links">
+          <a class="clone-footer-link" href="#section-5">How It Works</a>
+          <a class="clone-footer-link" href="#zailux-demo">Live Demo</a>
+          <a class="clone-footer-link" href="#section-8">Pricing</a>
+          <a class="clone-footer-link" href="#section-10">FAQs</a>
+          <a class="clone-footer-link" href="#section-11">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="clone-footer-bottom">
+      <p class="clone-footer-copy">© 2026 Zailux AI Services. All rights reserved.</p>
+      <div class="clone-footer-legal" aria-label="Legal">
+        <a class="clone-footer-link" href="#section-euctJ7uybg">Terms &amp; Conditions</a>
+        <a class="clone-footer-link" href="#section-C3FYzlynDf">Privacy Policy</a>
+        <a class="clone-footer-link" href="#section-6cQ8s4uivO">SMS / Messaging Terms</a>
+      </div>
+    </div>
   </div>
-  <p class="clone-footer-copy">© 2026 Zailux AI Services. All rights reserved.</p>
 </footer>
 
   </div>

@@ -17,11 +17,11 @@
 <style>
 :root{--bg:#050505;--panel:#0c0912;--panel2:#11091b;--purple:#a259ff;--purple2:#c084fc;--blue:#4b8dff;--muted:#aaa4b5;--line:rgba(162,89,255,.22);--content:1160px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:90px}
+html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:110px}
 body{margin:0;background:var(--bg);color:#fff;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
 a{color:inherit}button,select{font:inherit}
 .wrap{width:min(var(--content),calc(100% - 44px));margin:0 auto}
-.site-header{position:relative;z-index:50;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,5,5,.84);backdrop-filter:blur(16px)}
+.site-header{position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,5,5,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .nav-inner{width:min(1240px,calc(100% - 44px));min-height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .logo{font-family:Sora,sans-serif;font-weight:800;font-size:25px;letter-spacing:-.06em;text-decoration:none;white-space:nowrap}.logo span{color:var(--purple)}
 .nav-links{display:flex;align-items:center;gap:24px}.nav-links>a,.nav-dropdown-toggle{color:#aaa4b5;text-decoration:none;font-size:13px;transition:color .2s}.nav-links>a:hover,.nav-dropdown-toggle:hover{color:#fff}

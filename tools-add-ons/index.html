@@ -31,7 +31,7 @@ html{scroll-behavior:smooth}
 .clone-nav .nav-dropdown-menu:before{content:"";position:absolute;top:-18px;left:0;right:0;height:18px;}
 .clone-nav .nav-dropdown:hover .nav-dropdown-menu,.clone-nav .nav-dropdown.open .nav-dropdown-menu,.clone-nav .nav-dropdown:focus-within .nav-dropdown-menu{display:block}
 .clone-nav .nav-dropdown-item{display:block;padding:10px 12px;border-radius:10px;color:#E5E7EB;text-decoration:none;font-size:0.875rem;line-height:1.2;transition:background 150ms ease,color 150ms ease}
-.clone-nav .nav-dropdown-item:hover{background:rgba(162,89,255,0.16);color:#ffffff}
+.clone-nav .nav-dropdown-item-featured{margin:3px 0 5px;border:1px solid rgba(162,89,255,.38);background:linear-gradient(110deg,rgba(124,58,237,.18),rgba(37,99,235,.09));padding:11px 12px}.nav-dropdown-item-featured strong{display:block;font-weight:650;color:#fff}.nav-dropdown-item-featured small{display:block;margin-top:4px;font-size:11px;line-height:1.4;color:#b9a9d1}.nav-dropdown-item-featured:hover{background:linear-gradient(110deg,rgba(124,58,237,.28),rgba(37,99,235,.16));border-color:rgba(192,132,252,.6)}.nav-dropdown-item:hover{background:rgba(162,89,255,0.16);color:#ffffff}
 .clone-nav .nav-dropdown-label{display:block;font-size:0.75rem;color:rgba(156,163,175,0.9);padding:8px 12px 4px 12px}
 
 .clone-nav .border-beam-btn{position:relative;z-index:1;overflow:hidden;padding:10px 24px;border-radius:9999px;font-size:0.875rem;font-weight:700;color:#ffffff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;box-sizing:border-box;transition:transform 150ms ease,box-shadow 150ms ease}
@@ -227,9 +227,8 @@ html{scroll-behavior:smooth}
         <span class="nav-dropdown-label">Core Services</span>
         <a href="/ai-receptionist/" class="nav-dropdown-item" role="menuitem">AI Receptionist</a>
         <a href="/ai-sales-rep/" class="nav-dropdown-item" role="menuitem">AI Sales Rep</a>
-        <span class="nav-dropdown-label">More</span>
-        <a href="/tools-add-ons/" class="nav-dropdown-item" aria-current="page" role="menuitem">Tools &amp; Add-ons</a>
-        <a href="/business-growth-suite/" class="nav-dropdown-item" role="menuitem">Business Growth Suite</a>
+        <span class="nav-dropdown-label">Growth Package</span><a href="/business-growth-suite/" class="nav-dropdown-item nav-dropdown-item-featured" role="menuitem"><strong>Business Growth Suite</strong><small>Four toolsets. One package.</small></a>
+        <span class="nav-dropdown-label">More</span><a href="/tools-add-ons/" class="nav-dropdown-item" role="menuitem">Tools &amp; Add-ons</a>
       </div>
     </div>
 

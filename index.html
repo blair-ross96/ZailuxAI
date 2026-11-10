@@ -1344,14 +1344,32 @@ html { scroll-behavior: smooth; }
       #zailux-demo .demo-copy p { margin:0; color:#b7aec9; font-size:15px; line-height:1.75; }
       #zailux-demo .demo-points { display:grid; gap:10px; margin:20px 0 24px; color:#ddd4ed; font-size:14px; }
       #zailux-demo .demo-points span:before { content:"✓"; color:#b18aff; font-weight:800; margin-right:10px; }
+      #zailux-demo .demo-button { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:48px; padding:13px 21px; border-radius:12px; background:#8b5cf6; color:#fff; font-weight:750; text-decoration:none; box-shadow:0 8px 26px rgba(139,92,246,.25); transition:transform .2s ease,background .2s ease; }
+      #zailux-demo .demo-button:hover { transform:translateY(-2px); background:#9a70ff; }
       #zailux-demo .demo-instruction { display:flex; align-items:flex-start; gap:14px; margin-top:24px; padding:18px; border:1px solid rgba(162,89,255,.28); border-radius:14px; background:linear-gradient(135deg,rgba(162,89,255,.12),rgba(162,89,255,.04)); }
       #zailux-demo .demo-instruction-icon { display:flex; flex:0 0 40px; width:40px; height:40px; align-items:center; justify-content:center; border-radius:12px; background:rgba(162,89,255,.16); font-size:20px; }
       #zailux-demo .demo-instruction strong { display:block; margin:0 0 6px; color:#fff; font-size:16px; font-weight:750; }
       #zailux-demo .demo-instruction p { margin:0; color:#ddd4ed; font-size:14px; line-height:1.65; }
       #zailux-demo .demo-instruction-hint { display:block; margin-top:8px; color:#a99bbd; font-size:12px; line-height:1.5; }
-      @media(max-width:720px){ #zailux-demo{padding:56px 18px 62px} #zailux-demo .demo-panel{grid-template-columns:1fr;gap:24px;padding:16px} #zailux-demo .demo-art{min-height:210px} #zailux-demo .demo-copy{padding:4px 3px 8px} }
+      @media(max-width:720px){ #zailux-demo{padding:56px 18px 62px} #zailux-demo .demo-panel{grid-template-columns:1fr;gap:24px;padding:16px} #zailux-demo .demo-art{min-height:210px} #zailux-demo .demo-copy{padding:4px 3px 8px} #zailux-demo .demo-button{width:100%;box-sizing:border-box} }
       @media(prefers-reduced-motion:reduce){#zailux-demo .demo-wave span{animation:none}}
-    </style>
+    
+.recorded-demos{padding:56px 0 18px;background:linear-gradient(180deg,#07060b,#050505)}
+.recorded-demos .section-head{margin-bottom:28px}
+.recorded-demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:940px;margin:0 auto}
+.recorded-demo-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid rgba(162,89,255,.2);border-radius:20px;background:linear-gradient(160deg,rgba(22,11,38,.82),rgba(9,7,13,.96));box-shadow:0 12px 34px rgba(0,0,0,.22);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;overflow:hidden}
+.recorded-demo-card:hover{transform:translateY(-3px);border-color:rgba(162,89,255,.48);box-shadow:0 18px 42px rgba(126,34,206,.16)}
+.recorded-demo-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:rgba(162,89,255,.13);border:1px solid rgba(162,89,255,.25);color:#d8b4fe;font-size:23px}
+.recorded-demo-label{color:#c4a5ff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.recorded-demo-card h3{margin:7px 0 8px;font-size:19px}
+.recorded-demo-card p{margin:0;color:#b7aec9;font-size:13px;line-height:1.65}
+.recorded-demo-card audio{display:block;width:100%;margin-top:4px;accent-color:#a259ff}
+.recorded-demo-placeholder{font-size:11px!important;color:#8e839e!important}
+.recorded-demo-note{margin:22px auto 0;text-align:center;color:#a79bb7;font-size:13px;line-height:1.6}
+.recorded-demo-note a{color:#c4a5ff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:720px){.recorded-demos{padding-top:38px}.recorded-demo-grid{grid-template-columns:1fr}.recorded-demo-card{padding:20px}}
+
+</style>
     <div class="demo-inner">
       <div style="text-align:center;">
         <span class="demo-eyebrow"><span class="demo-dot"></span> EXPERIENCE ZAILUX</span>
@@ -1359,7 +1377,7 @@ html { scroll-behavior: smooth; }
         <p class="demo-subtext">Don't just take our word for it. Have a conversation with Zailux and discover what our AI receptionist can do.</p>
       </div>
       <div class="demo-panel">
-        <div class="demo-art demo-widget-container" aria-label="Interactive Zailux AI demo">
+        <div class="demo-art demo-widget-container" aria-label="Interactive Zailux AI voice demo">
           <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6af2e121e1790c547599d42b"></script>
         </div>
         <div class="demo-copy">

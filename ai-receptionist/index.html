@@ -250,7 +250,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
   <p class="platform-placeholder-note">Industry scenarios are illustrative examples of possible configurations, not customer case studies or guaranteed outcomes.</p>
  </div>
 </section>
-<div id="receptionist-live-demo" style="width:100%;max-width:100%;box-sizing:border-box;">
+  <div id="receptionist-live-demo" style="width:100%;max-width:100%;box-sizing:border-box;">
     <style>
       #receptionist-live-demo { padding: 76px 24px 84px; background: radial-gradient(ellipse at 50% 0%, rgba(110,55,190,.14), transparent 58%), #07060b; color:#fff; }
       #receptionist-live-demo .demo-inner { max-width: 1080px; margin:0 auto; }
@@ -271,7 +271,11 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
       #receptionist-live-demo .demo-points span:before { content:"✓"; color:#b18aff; font-weight:800; margin-right:10px; }
       #receptionist-live-demo .demo-button { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:48px; padding:13px 21px; border-radius:12px; background:#8b5cf6; color:#fff; font-weight:750; text-decoration:none; box-shadow:0 8px 26px rgba(139,92,246,.25); transition:transform .2s ease,background .2s ease; }
       #receptionist-live-demo .demo-button:hover { transform:translateY(-2px); background:#9a70ff; }
-      #receptionist-live-demo .demo-note { margin-top:12px; color:#9488a9; font-size:12px; line-height:1.5; }
+      #receptionist-live-demo .demo-instruction { display:flex; align-items:flex-start; gap:14px; margin-top:24px; padding:18px; border:1px solid rgba(162,89,255,.28); border-radius:14px; background:linear-gradient(135deg,rgba(162,89,255,.12),rgba(162,89,255,.04)); }
+      #receptionist-live-demo .demo-instruction-icon { display:flex; flex:0 0 40px; width:40px; height:40px; align-items:center; justify-content:center; border-radius:12px; background:rgba(162,89,255,.16); font-size:20px; }
+      #receptionist-live-demo .demo-instruction strong { display:block; margin:0 0 6px; color:#fff; font-size:16px; font-weight:750; }
+      #receptionist-live-demo .demo-instruction p { margin:0; color:#ddd4ed; font-size:14px; line-height:1.65; }
+      #receptionist-live-demo .demo-instruction-hint { display:block; margin-top:8px; color:#a99bbd; font-size:12px; line-height:1.5; }
       @media(max-width:720px){ #receptionist-live-demo{padding:56px 18px 62px} #receptionist-live-demo .demo-panel{grid-template-columns:1fr;gap:24px;padding:16px} #receptionist-live-demo .demo-art{min-height:210px} #receptionist-live-demo .demo-copy{padding:4px 3px 8px} #receptionist-live-demo .demo-button{width:100%;box-sizing:border-box} }
       @media(prefers-reduced-motion:reduce){#receptionist-live-demo .demo-wave span{animation:none}}
     
@@ -298,15 +302,21 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
         <p class="demo-subtext">Don't just take our word for it. Have a conversation with Zailux and discover what our AI receptionist can do.</p>
       </div>
       <div class="demo-panel">
-        <div class="demo-art" role="img" aria-label="Purple animated audio waveform representing the Zailux AI voice demo">
-          <div class="demo-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="demo-art demo-widget-container" aria-label="Interactive Zailux AI voice demo">
+          <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6af2e121e1790c547599d42b"></script>
         </div>
         <div class="demo-copy">
           <h3>Meet the Zailux AI Receptionist</h3>
           <p>Ask about our services, explore pricing, find out how Zailux works or request a consultation. Experience the same AI receptionist we're building to help businesses handle enquiries and book appointments.</p>
           <div class="demo-points"><span>Ask questions about Zailux</span><span>Explore services and pricing</span><span>Find out how to book a consultation</span></div>
-          <a class="demo-button" href="/#section-11"><span aria-hidden="true">☎</span> Call Zailux (Demo)</a>
-          <p class="demo-note">Demo button placeholder: we'll connect this to your dedicated AI demo phone number once it's ready.</p>
+          <div class="demo-instruction">
+            <span class="demo-instruction-icon" aria-hidden="true">🎙</span>
+            <div>
+              <strong>Ready to try Zailux?</strong>
+              <p>Click or tap the interactive voice demo to start a live conversation with our AI receptionist.</p>
+              <span class="demo-instruction-hint">Your conversation starts directly inside the demo.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

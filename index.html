@@ -1364,12 +1364,41 @@ html { scroll-behavior: smooth; }
           <h3>Meet the Zailux AI Receptionist</h3>
           <p>Ask about our services, explore pricing, find out how Zailux works or request a consultation. Experience the same AI receptionist we're building to help businesses handle enquiries and book appointments.</p>
           <div class="demo-points"><span>Ask questions about Zailux</span><span>Explore services and pricing</span><span>Find out how to book a consultation</span></div>
-          <a class="demo-button" href="#section-11"><span aria-hidden="true">☎</span> Call Zailux (Demo)</a>
-          <p class="demo-note">Demo button placeholder: we'll connect this to your dedicated AI demo phone number once it's ready.</p>
+          <button class="demo-button" id="open-zailux-demo" type="button"><span aria-hidden="true">☎</span> Call Zailux (Demo)</button>
+          <p class="demo-note">Select the button to start your conversation with the Zailux AI demo.</p>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+  (function () {
+    var button = document.getElementById('open-zailux-demo');
+    if (!button) return;
+    var pendingOpen = false;
+
+    function openDemoWidget() {
+      if (window.leadConnector && window.leadConnector.chatWidget &&
+          typeof window.leadConnector.chatWidget.openWidget === 'function') {
+        pendingOpen = false;
+        window.leadConnector.chatWidget.openWidget();
+        return true;
+      }
+      return false;
+    }
+
+    window.addEventListener('LC_chatWidgetLoaded', function () {
+      if (pendingOpen) openDemoWidget();
+    });
+
+    button.addEventListener('click', function () {
+      if (!openDemoWidget()) {
+        pendingOpen = true;
+        button.setAttribute('aria-busy', 'true');
+      }
+    });
+  })();
+  </script>
 
   <!-- SECTION 5: EXPLORE OUR SOLUTIONS -->
   <div id="section-5" style="width:100%;max-width:100%;box-sizing:border-box;">

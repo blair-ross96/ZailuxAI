@@ -199,18 +199,27 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 @media(max-width:800px){.voice-demo-layout{grid-template-columns:1fr;gap:20px}.voice-demo-intro{padding:0}.messaging-panel{grid-template-columns:1fr;gap:24px;padding:23px}.messaging-image-placeholder{min-height:260px}.audio-example-grid{grid-template-columns:1fr}}@media(max-width:560px){.messaging-tabs{padding:10px;gap:5px}.messaging-tab{flex:1;padding:10px 7px;font-size:10px}.messaging-panel{padding:17px}.messaging-copy h3{font-size:21px}.audio-example-card{padding:20px}}
 
 /* Unified conversations inbox showcase */
-.unified-inbox-showcase{max-width:380px;width:100%;margin:0 auto;border:1px solid rgba(96,165,250,.24);border-radius:22px;overflow:hidden;background:linear-gradient(145deg,rgba(14,25,43,.55),rgba(9,8,12,.98));box-shadow:0 24px 75px rgba(0,0,0,.32),0 0 55px rgba(96,165,250,.07)}
-.unified-inbox-showcase img{display:block;width:100%;height:auto;object-fit:contain;background:#f8fafc}
-.unified-inbox-image-caption{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border-top:1px solid rgba(255,255,255,.08);color:#aeb8ca;font-size:11px;font-weight:600;letter-spacing:.02em}
+.unified-inbox-layout{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:30px;align-items:center;max-width:900px;margin:0 auto}
+.unified-inbox-showcase{width:100%;margin:0;border:1px solid rgba(96,165,250,.24);border-radius:22px;overflow:hidden;background:linear-gradient(145deg,rgba(14,25,43,.55),rgba(9,8,12,.98));box-shadow:0 24px 75px rgba(0,0,0,.32),0 0 55px rgba(96,165,250,.07)}
+.unified-inbox-zoom{position:relative;display:block;width:100%;padding:0;border:0;background:#f8fafc;cursor:zoom-in;text-align:inherit}
+.unified-inbox-zoom img{display:block;width:100%;height:auto;object-fit:contain}
+.unified-inbox-zoom-hint{position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:6px;padding:7px 10px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(8,12,22,.82);color:#fff;font-size:10px;font-weight:700;opacity:.94}
+.unified-inbox-zoom:focus-visible,.unified-inbox-dialog-close:focus-visible{outline:3px solid #a78bfa;outline-offset:3px}
+.unified-inbox-image-caption{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 12px;border-top:1px solid rgba(255,255,255,.08);color:#aeb8ca;font-size:10px;font-weight:600;letter-spacing:.02em;text-align:center}
 .unified-inbox-caption-dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#60a5fa;box-shadow:0 0 12px rgba(96,165,250,.7)}
-.unified-inbox-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1120px;margin:22px auto 0}
-.unified-inbox-benefit{display:flex;align-items:flex-start;gap:13px;padding:19px;border:1px solid rgba(255,255,255,.08);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))}
+.unified-inbox-benefits{display:grid;grid-template-columns:1fr;gap:12px;width:100%;margin:0}
+.unified-inbox-benefit{display:flex;align-items:flex-start;gap:13px;padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))}
 .unified-inbox-benefit-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border:1px solid rgba(167,139,250,.22);border-radius:10px;background:rgba(139,92,246,.12);color:#c4b5fd;font-size:17px;font-weight:800}
 .unified-inbox-benefit h3{margin:1px 0 6px;font-size:13px;color:#f4f4f5}
 .unified-inbox-benefit p{margin:0;color:#a9a1b5;font-size:11px;line-height:1.7}
-.unified-inbox-fine-print{margin:18px auto 0;max-width:1120px}
-@media(max-width:800px){.unified-inbox-benefits{grid-template-columns:1fr;gap:10px}.unified-inbox-benefit{padding:16px}}
-@media(max-width:560px){.unified-inbox-showcase{border-radius:15px}.unified-inbox-image-caption{font-size:10px;padding:11px 12px}}
+.unified-inbox-fine-print{margin:18px auto 0;max-width:900px}
+.unified-inbox-dialog{position:fixed;inset:0;width:min(96vw,1400px);max-width:none;max-height:94vh;height:auto;padding:0;border:1px solid rgba(167,139,250,.35);border-radius:16px;background:#090b12;color:#f8fafc;box-shadow:0 28px 100px rgba(0,0,0,.7);overflow:hidden}
+.unified-inbox-dialog::backdrop{background:rgba(2,4,10,.88);backdrop-filter:blur(7px)}
+.unified-inbox-dialog-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;font-weight:700}
+.unified-inbox-dialog-close{width:34px;height:34px;border:1px solid rgba(255,255,255,.16);border-radius:9px;background:rgba(255,255,255,.07);color:#fff;font-size:25px;line-height:1;cursor:pointer}
+.unified-inbox-dialog>img{display:block;width:100%;height:auto;max-height:calc(94vh - 58px);object-fit:contain;background:#f8fafc}
+@media(max-width:760px){.unified-inbox-layout{grid-template-columns:minmax(0,380px);justify-content:center;gap:20px}.unified-inbox-benefits{max-width:480px}}
+@media(max-width:560px){.unified-inbox-showcase{border-radius:15px}.unified-inbox-image-caption{font-size:9px;padding:10px}.unified-inbox-benefit{padding:15px}.unified-inbox-dialog{width:96vw;max-height:92vh;border-radius:12px}.unified-inbox-dialog>img{max-height:calc(92vh - 58px)}}
 </style>
 </head>
 <body>
@@ -531,15 +540,24 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
     <h2>Every conversation. <span class="sales-gradient">One inbox.</span></h2>
     <p>Bring your customer communications together in one place. Emails, SMS, WhatsApp, social media messages and web chats can all be managed through the Zailux Conversations inbox. No switching between platforms or searching through separate message threads — just one organised view to help your team stay on top of every interaction.</p>
    </div>
-   <div class="unified-inbox-showcase">
-    <img src="/images/zailux-unified-inbox.jpg" alt="The Zailux unified Conversations inbox showing WhatsApp, SMS, Instagram, email, web chat and Facebook messages together in one place" loading="lazy" decoding="async">
-    <div class="unified-inbox-image-caption"><span class="unified-inbox-caption-dot"></span> One central place for supported customer conversations</div>
+   <div class="unified-inbox-layout">
+    <div class="unified-inbox-showcase">
+     <button class="unified-inbox-zoom" type="button" aria-label="Enlarge unified inbox screenshot" aria-haspopup="dialog" aria-controls="unified-inbox-dialog">
+      <img src="/images/zailux-unified-inbox.png" alt="The Zailux unified Conversations inbox showing WhatsApp, SMS, Instagram, email, web chat and Facebook messages together in one place" loading="lazy" decoding="async">
+      <span class="unified-inbox-zoom-hint"><span aria-hidden="true">⤢</span> Click to enlarge</span>
+     </button>
+     <div class="unified-inbox-image-caption"><span class="unified-inbox-caption-dot"></span> One central place for supported customer conversations</div>
+    </div>
+    <div class="unified-inbox-benefits">
+     <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">▣</span><div><h3>One central inbox</h3><p>Bring conversations from supported channels into one organised view, instead of managing separate message platforms.</p></div></article>
+     <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">↻</span><div><h3>Every conversation in context</h3><p>Keep track of customer interactions and follow-ups with conversation history together in one place.</p></div></article>
+     <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">✓</span><div><h3>Stay on top of enquiries</h3><p>Give your team a clearer view of incoming messages, ongoing conversations and the next steps that need attention.</p></div></article>
+    </div>
    </div>
-   <div class="unified-inbox-benefits">
-    <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">▣</span><div><h3>One central inbox</h3><p>Bring conversations from supported channels into one organised view, instead of managing separate message platforms.</p></div></article>
-    <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">↻</span><div><h3>Every conversation in context</h3><p>Keep track of customer interactions and follow-ups with conversation history together in one place.</p></div></article>
-    <article class="unified-inbox-benefit"><span class="unified-inbox-benefit-icon" aria-hidden="true">✓</span><div><h3>Stay on top of enquiries</h3><p>Give your team a clearer view of incoming messages, ongoing conversations and the next steps that need attention.</p></div></article>
-   </div>
+   <dialog class="unified-inbox-dialog" id="unified-inbox-dialog" aria-label="Enlarged Zailux unified inbox screenshot">
+    <div class="unified-inbox-dialog-bar"><span>Unified Conversations Inbox</span><button type="button" class="unified-inbox-dialog-close" aria-label="Close enlarged image">×</button></div>
+    <img src="/images/zailux-unified-inbox.png" alt="Enlarged view of the Zailux unified Conversations inbox">
+   </dialog>
    <p class="fine-print unified-inbox-fine-print">Available channels and features depend on supported integrations, account permissions and your configured setup.</p>
   </div>
  </section>
@@ -802,6 +820,19 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 </script>
 <script>
 (function(){var tabs=Array.prototype.slice.call(document.querySelectorAll('[data-message-tab]'));var panels=Array.prototype.slice.call(document.querySelectorAll('[data-message-panel]'));if(!tabs.length||!panels.length)return;function activate(name,focus){tabs.forEach(function(tab){var active=tab.getAttribute('data-message-tab')===name;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;if(active&&focus)tab.focus();});panels.forEach(function(panel){panel.hidden=panel.getAttribute('data-message-panel')!==name;});}tabs.forEach(function(tab,index){tab.addEventListener('click',function(){activate(tab.getAttribute('data-message-tab'),false);});tab.addEventListener('keydown',function(e){var next=index;if(e.key==='ArrowRight')next=(index+1)%tabs.length;else if(e.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=tabs.length-1;else return;e.preventDefault();activate(tabs[next].getAttribute('data-message-tab'),true);});});})();
+</script>
+
+<script>
+(function(){
+ var trigger=document.querySelector('.unified-inbox-zoom');
+ var dialog=document.getElementById('unified-inbox-dialog');
+ if(!trigger||!dialog||typeof dialog.showModal!=='function')return;
+ var close=dialog.querySelector('.unified-inbox-dialog-close');
+ trigger.addEventListener('click',function(){dialog.showModal();if(close)close.focus();});
+ if(close)close.addEventListener('click',function(){dialog.close();});
+ dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
+ dialog.addEventListener('close',function(){trigger.focus();});
+})();
 </script>
 </body>
 </html>

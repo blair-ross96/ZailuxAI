@@ -486,7 +486,9 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
       <div class="demo-form-grid">
        <div class="demo-field"><label for="demo-first-name">First name *</label><input id="demo-first-name" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name"></div>
        <div class="demo-field"><label for="demo-last-name">Last name *</label><input id="demo-last-name" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name"></div>
-       <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="+44 7700 900123" aria-describedby="demo-phone-note"><small class="demo-phone-note" id="demo-phone-note">Include your country code before your number (for example, +44 for the UK or +61 for Australia).</small></div>
+       <div class="demo-field"><label for="demo-company-name">Company name (Optional)</label><input id="demo-company-name" name="company_name" autocomplete="organization" maxlength="120" placeholder="Company name"></div>
+       <div class="demo-field"><label for="demo-email">Email address (Optional)</label><input id="demo-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="Email address"></div>
+       <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="+44 7460 045904" aria-describedby="demo-phone-note"><small class="demo-phone-note" id="demo-phone-note">Enter your country’s area code (e.g. +44, +61, +1)</small></div>
       </div>
       <label class="demo-consent" for="demo-consent"><input id="demo-consent" name="consent" type="checkbox" required><span>I request one automated test call to the number provided. My details will be used to handle this request in accordance with the <a href="/#section-C3FYzlynDf" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
       <button class="btn btn-primary sales-primary demo-submit" type="submit" id="demo-call-submit">Call Me for a Demo <span aria-hidden="true">↗</span></button>
@@ -729,7 +731,9 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
    button.textContent=config.loadingText;
    showStatus('info',config.submittingText);
    try{
-    var payload={first_name:first,last_name:last,phone_number_e164:phone,consent:true,request_type:config.requestType};
+    var company=(document.getElementById('demo-company-name').value||'').trim();
+    var email=(document.getElementById('demo-email').value||'').trim();
+    var payload={first_name:first,last_name:last,company_name:company,email:email,phone_number_e164:phone,consent:true,request_type:config.requestType};
     var response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
     var result={};try{result=await response.json()}catch(_){}
     if(!response.ok||result.accepted!==true){

@@ -486,7 +486,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
       <div class="demo-form-grid">
        <div class="demo-field"><label for="demo-first-name">First name *</label><input id="demo-first-name" name="first_name" autocomplete="given-name" required maxlength="80" placeholder="First name"></div>
        <div class="demo-field"><label for="demo-last-name">Last name *</label><input id="demo-last-name" name="last_name" autocomplete="family-name" required maxlength="80" placeholder="Last name"></div>
-       <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><div class="demo-phone-row"><select id="demo-country-code" name="country_code" aria-label="Country calling code" required><option value="+44" selected>UK (+44)</option><option value="+61">Australia (+61)</option><option value="+1">US / Canada (+1)</option><option value="+353">Ireland (+353)</option><option value="+64">New Zealand (+64)</option><option value="+49">Germany (+49)</option><option value="+33">France (+33)</option><option value="+34">Spain (+34)</option><option value="+31">Netherlands (+31)</option><option value="+39">Italy (+39)</option><option value="+27">South Africa (+27)</option><option value="+971">UAE (+971)</option></select><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required maxlength="24" placeholder="Phone number"></div></div>
+       <div class="demo-field" style="grid-column:1/-1"><label for="demo-phone">Phone number *</label><input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="+44 7700 900123" aria-describedby="demo-phone-note"><small class="demo-phone-note" id="demo-phone-note">Include your country code before your number (for example, +44 for the UK or +61 for Australia).</small></div>
       </div>
       <label class="demo-consent" for="demo-consent"><input id="demo-consent" name="consent" type="checkbox" required><span>I request one automated test call to the number provided. My details will be used to handle this request in accordance with the <a href="/#section-C3FYzlynDf" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
       <button class="btn btn-primary sales-primary demo-submit" type="submit" id="demo-call-submit">Call Me for a Demo <span aria-hidden="true">↗</span></button>
@@ -694,11 +694,13 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
 <script>
 (function(){
  function digitsOnly(value){return (value||'').replace(/[^0-9]/g,'');}
- function normalizePhone(prefix,raw){
-  var digits=digitsOnly(raw);
-  while(digits.length>0&&digits.charAt(0)==='0')digits=digits.slice(1);
-  if(!prefix||digits.length<6||digits.length>14)return '';
-  return '+'+(prefix+digits).replace(/[^0-9]/g,'');
+ function normalizePhone(raw){
+  var value=(raw||'').trim();
+  if(value.indexOf('00')===0)value='+'+value.slice(2);
+  if(value.charAt(0)!=='+')return '';
+  var digits=digitsOnly(value);
+  if(digits.length<7||digits.length>15)return '';
+  return '+'+digits;
  }
  function setupDemoForm(config){
   var form=document.getElementById(config.formId);
@@ -712,12 +714,11 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
    e.preventDefault();
    var first=(document.getElementById(config.firstId).value||'').trim();
    var last=(document.getElementById(config.lastId).value||'').trim();
-   var prefix=document.getElementById(config.countryId).value;
    var raw=(document.getElementById(config.phoneId).value||'').trim();
    var consent=document.getElementById(config.consentId).checked;
-   var phone=normalizePhone(prefix,raw);
+   var phone=normalizePhone(raw);
    if(!first||!last){showStatus('error','Please enter your first and last name.');return;}
-   if(!phone){showStatus('error','Please enter a valid phone number and country calling code.');return;}
+   if(!phone){showStatus('error','Please enter a valid international phone number, including the + country code (for example, +447700900123).');return;}
    if(!consent){showStatus('error',config.consentError);return;}
    if(!endpoint){
     showStatus('info',config.notConfigured);
@@ -748,7 +749,7 @@ h1,h2,h3,.price{font-family:'Sora','Inter',sans-serif}
  setupDemoForm({
   formId:'zailux-demo-call-form',statusId:'demo-call-status',buttonId:'demo-call-submit',
   endpointKey:'demoCallEndpoint',metaName:'zailux-demo-call-endpoint',
-  firstId:'demo-first-name',lastId:'demo-last-name',countryId:'demo-country-code',phoneId:'demo-phone',consentId:'demo-consent',
+  firstId:'demo-first-name',lastId:'demo-last-name',phoneId:'demo-phone',consentId:'demo-consent',
   requestType:'ai_sales_rep_test_call',loadingText:'Requesting Call…',submittingText:'Submitting your test-call request…',
   consentError:'Please confirm that you are requesting an automated test call.',
   notConfigured:'The voice-demo calling integration is not connected yet. No call has been placed. The secure backend endpoint must be configured before this form can trigger the AI agent.',

@@ -38,6 +38,10 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+      # GitHub's artifact API can briefly lag behind a successful upload.
+      # Wait for the github-pages artifact to become visible before deploying.
+      - name: Wait for Pages artifact registration
+        run: sleep 15
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

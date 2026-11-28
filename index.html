@@ -3989,23 +3989,23 @@ function toggleFaq(element) {
         <div class="clone-cta-form-row">
           <div class="clone-cta-form-group clone-cta-form-col">
             <label class="clone-cta-form-label">First Name <span class="clone-cta-form-req">*</span></label>
-            <input type="text" class="clone-cta-form-input" name="firstName" autocomplete="given-name" placeholder="Enter your first name" required>
+            <input type="text" class="clone-cta-form-input" name="first_name" autocomplete="given-name" placeholder="Enter your first name" required>
           </div>
 
           <div class="clone-cta-form-group clone-cta-form-col">
             <label class="clone-cta-form-label">Last Name <span class="clone-cta-form-req">*</span></label>
-            <input type="text" class="clone-cta-form-input" name="lastName" autocomplete="family-name" placeholder="Enter your last name" required>
+            <input type="text" class="clone-cta-form-input" name="last_name" autocomplete="family-name" placeholder="Enter your last name" required>
           </div>
         </div>
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Business Name</label>
-          <input type="text" class="clone-cta-form-input" name="businessName" autocomplete="organization" placeholder="Enter your business name">
+          <input type="text" class="clone-cta-form-input" name="company" autocomplete="organization" placeholder="Enter your business name">
         </div>
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">What Industry Is Your Business In?</label>
-          <select class="clone-cta-form-select" name="industry">
+          <select class="clone-cta-form-select" name="contact.industry__sector">
             <option value="" selected>Select your industry</option>
             <option value="Home services">Home services (plumbing, heating, roofing, etc.)</option>
             <option value="Med spa and aesthetics">Med spa and aesthetics</option>
@@ -4039,7 +4039,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">How Many Inbound Calls Does Your Business Receive Per Month?</label>
-          <select class="clone-cta-form-select" name="monthlyInboundCalls">
+          <select class="clone-cta-form-select" name="contact.monthly_call_volume">
             <option value="" selected>Select an option</option>
             <option value="Less than 100">Less than 100</option>
             <option value="100-500">100-500</option>
@@ -4051,7 +4051,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Outbound Leads Per Month</label>
-          <select class="clone-cta-form-select" name="outboundLeadsPerMonth">
+          <select class="clone-cta-form-select" name="contact.outbound_leads_per_month">
             <option value="" disabled selected>Select an option</option>
             <option value="Less than 50">Less than 50</option>
             <option value="50-200">50-200</option>
@@ -4077,7 +4077,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">What Plan Are You Interested In? <span class="clone-cta-form-req">*</span></label>
-          <select class="clone-cta-form-select" name="planInterestedIn" required>
+          <select class="clone-cta-form-select" name="contact.what_plan_are_you_interested_in" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Inbound - AI Receptionist">Inbound - AI Receptionist</option>
             <option value="Outbound - AI Sales Rep">Outbound - AI Sales Rep</option>
@@ -4108,7 +4108,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-disclaimer-box">
           <div class="clone-cta-form-disclaimer-title">Tell us about your business</div>
-          <textarea class="clone-cta-form-textarea" name="businessDetails" placeholder="Briefly tell us what your business does and what you'd like help with..."></textarea>
+          <textarea class="clone-cta-form-textarea" name="contact.main_problem__need" placeholder="Briefly tell us what your business does and what you'd like help with..."></textarea>
         </div>
 
         <button type="submit" class="clone-cta-form-btn">Let's Discuss Your Business</button>

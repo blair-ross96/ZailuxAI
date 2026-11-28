@@ -3178,9 +3178,9 @@ html { scroll-behavior: smooth; }
       var planSelects = document.querySelectorAll('#clone-cta-demo-form select');
       Array.prototype.forEach.call(planSelects, function (planSelect) {
         Array.prototype.forEach.call(planSelect.options, function (option) {
-          if (option.value === 'ai-receptionist') option.textContent = data.receptionistOption;
-          else if (option.value === 'ai-sales-rep') option.textContent = data.salesOption;
-          else if (option.value === 'complete') option.textContent = data.completeOption;
+          if (option.value === 'Inbound - AI Receptionist') option.textContent = data.receptionistOption;
+          else if (option.value === 'Outbound - AI Sales Rep') option.textContent = data.salesOption;
+          else if (option.value === 'AI Receptionist + AI Sales Rep') option.textContent = data.completeOption;
         });
       });
       if (persist) { try { localStorage.setItem('zailuxPreferredCurrency', curr); localStorage.setItem('zailuxCurrencyManualChoice', '1'); } catch (e) {} }
@@ -4041,12 +4041,11 @@ function toggleFaq(element) {
           <label class="clone-cta-form-label">How Many Inbound Calls Does Your Business Receive Per Month?</label>
           <select class="clone-cta-form-select" name="monthlyInboundCalls">
             <option value="" selected>Select an option</option>
-            <option value="Under 100">Under 100 calls</option>
-            <option value="100-500">100–500 calls</option>
-            <option value="501-1000">501–1,000 calls</option>
-            <option value="1001-2000">1,001–2,000 calls</option>
-            <option value="2000+">2,000+ calls</option>
-            <option value="Not sure">Not sure</option>
+            <option value="Less than 100">Less than 100</option>
+            <option value="100-500">100-500</option>
+            <option value="500-1000">500-1000</option>
+            <option value="1000-2000">1000-2000</option>
+            <option value="2000+">2000+</option>
           </select>
         </div>
 
@@ -4054,10 +4053,10 @@ function toggleFaq(element) {
           <label class="clone-cta-form-label">Outbound Leads Per Month</label>
           <select class="clone-cta-form-select" name="outboundLeadsPerMonth">
             <option value="" disabled selected>Select an option</option>
-            <option value="0-50">0 - 50 leads</option>
-            <option value="51-200">51 - 200 leads</option>
-            <option value="201-500">201 - 500 leads</option>
-            <option value="500+">500+ leads</option>
+            <option value="Less than 50">Less than 50</option>
+            <option value="50-200">50-200</option>
+            <option value="200-500">200-500</option>
+            <option value="500+">500+</option>
           </select>
         </div>
 
@@ -4080,10 +4079,10 @@ function toggleFaq(element) {
           <label class="clone-cta-form-label">What Plan Are You Interested In? <span class="clone-cta-form-req">*</span></label>
           <select class="clone-cta-form-select" name="planInterestedIn" required>
             <option value="" disabled selected>Select an option</option>
-            <option value="ai-receptionist">AI Receptionist (A$599/mo)</option>
-            <option value="ai-sales-rep">AI Sales Rep (A$599/mo)</option>
-            <option value="complete">Complete Package (A$999/mo)</option>
-            <option value="custom">Custom Enterprise</option>
+            <option value="Inbound - AI Receptionist">Inbound - AI Receptionist</option>
+            <option value="Outbound - AI Sales Rep">Outbound - AI Sales Rep</option>
+            <option value="AI Receptionist + AI Sales Rep">AI Receptionist + AI Sales Rep</option>
+            <option value="Unsure">Unsure</option>
           </select>
         </div>
 

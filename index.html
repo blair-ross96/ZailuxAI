@@ -3984,23 +3984,23 @@ function toggleFaq(element) {
     </div>
 
     <div class="clone-cta-form-card">
-      <form id="clone-cta-demo-form" onsubmit="event.preventDefault(); document.getElementById('clone-cta-demo-form').style.display='none'; document.getElementById('clone-cta-success-msg').style.display='block';">
+      <form id="clone-cta-demo-form" name="zailux-business-enquiry" onsubmit="event.preventDefault(); document.getElementById('clone-cta-demo-form').style.display='none'; document.getElementById('clone-cta-success-msg').style.display='block';">
 
         <div class="clone-cta-form-row">
           <div class="clone-cta-form-group clone-cta-form-col">
             <label class="clone-cta-form-label">First Name <span class="clone-cta-form-req">*</span></label>
-            <input type="text" class="clone-cta-form-input" placeholder="Enter your first name" required>
+            <input type="text" class="clone-cta-form-input" name="firstName" autocomplete="given-name" placeholder="Enter your first name" required>
           </div>
 
           <div class="clone-cta-form-group clone-cta-form-col">
             <label class="clone-cta-form-label">Last Name <span class="clone-cta-form-req">*</span></label>
-            <input type="text" class="clone-cta-form-input" placeholder="Enter your last name" required>
+            <input type="text" class="clone-cta-form-input" name="lastName" autocomplete="family-name" placeholder="Enter your last name" required>
           </div>
         </div>
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Business Name</label>
-          <input type="text" class="clone-cta-form-input" placeholder="Enter your business name">
+          <input type="text" class="clone-cta-form-input" name="businessName" autocomplete="organization" placeholder="Enter your business name">
         </div>
 
         <div class="clone-cta-form-group">
@@ -4022,19 +4022,19 @@ function toggleFaq(element) {
           <label class="clone-cta-form-label">Email <span class="clone-cta-form-req">*</span></label>
           <div class="clone-cta-form-input-wrap">
             <svg width="24" height="24" class="clone-cta-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <input type="email" class="clone-cta-form-input clone-cta-form-input-icon" placeholder="your@email.com" required>
+            <input type="email" class="clone-cta-form-input clone-cta-form-input-icon" name="email" autocomplete="email" placeholder="your@email.com" required>
           </div>
         </div>
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Phone <span class="clone-cta-form-req">*</span></label>
-          <input type="tel" class="clone-cta-form-input" placeholder="+00" required>
+          <input type="tel" class="clone-cta-form-input" name="phone" autocomplete="tel" placeholder="+00" required>
           <div class="clone-cta-form-helper">Enter your country’s area code (e.g. +44, +61, +1)</div>
         </div>
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Website</label>
-          <input type="url" class="clone-cta-form-input" placeholder="https://yourwebsite.com">
+          <input type="url" class="clone-cta-form-input" name="website" placeholder="https://yourwebsite.com">
         </div>
 
         <div class="clone-cta-form-group">
@@ -4052,7 +4052,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">Outbound Leads Per Month</label>
-          <select class="clone-cta-form-select">
+          <select class="clone-cta-form-select" name="outboundLeadsPerMonth">
             <option value="" disabled selected>Select an option</option>
             <option value="0-50">0 - 50 leads</option>
             <option value="51-200">51 - 200 leads</option>
@@ -4078,7 +4078,7 @@ function toggleFaq(element) {
 
         <div class="clone-cta-form-group">
           <label class="clone-cta-form-label">What Plan Are You Interested In? <span class="clone-cta-form-req">*</span></label>
-          <select class="clone-cta-form-select" required>
+          <select class="clone-cta-form-select" name="planInterestedIn" required>
             <option value="" disabled selected>Select an option</option>
             <option value="ai-receptionist">AI Receptionist (A$599/mo)</option>
             <option value="ai-sales-rep">AI Sales Rep (A$599/mo)</option>
@@ -4340,5 +4340,10 @@ function toggleFaq(element) {
 </script>
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ae5666303d93fc521e30094"></script>
+
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_5c0a64c1b51548088fc758373542bc30">
+</script>
 </body>
 </html>
